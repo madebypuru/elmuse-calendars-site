@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For teams · elmuse 2027 calendars</title>
+  <meta name="description" content="2027 calendars for your clients and your team, with your logo, your artwork and your messages. Quoted for each order. Ships 10 December to the first week of January.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/teams.css">
+</head>
+<body data-page="teams" data-mode="teams">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header data-site-header></header>
+
+  <main id="main" class="container teams">
+    <header class="story-head">
+      <p class="kicker">For teams</p>
+      <h1>A year on their desk, with your name on it</h1>
+      <p>Quoted for each order. Ships 10 December to the first week of January.</p>
+    </header>
+
+    <figure class="story-fig story-fig--1408">
+      <img src="img/shared/shared-cards-and-board-sun-2400.webp" srcset="img/shared/shared-cards-and-board-sun-1200.webp 1200w, img/shared/shared-cards-and-board-sun-2400.webp 2400w" sizes="100vw" alt="Polaroid cards and the Sanctuary board in evening sun" style="--focal: 55% 50%" fetchpriority="high">
+    </figure>
+
+    <div class="story-body">
+      <p>The 2027 calendars for your clients and your team, made with your logo, your artwork and your messages.</p>
+      <p>Your clients and your team can each get their own edition.</p>
+    </div>
+
+    <section class="teams__block" aria-labelledby="yours-title">
+      <h2 class="summary__title" id="yours-title">What we can make yours</h2>
+      <div class="spec-row"><a href="sanctuary.html">Sanctuary</a><span><span class="teams__line">Your logo, laser-engraved on the birch board</span><span class="teams__line">Your artwork and monthly themes</span><span class="teams__line">A monthly QR that opens your own page or messages</span></span></div>
+      <div class="spec-row"><a href="polaroid.html">Polaroid</a><span>Your brand stickers, added to each set</span></div>
+      <div class="spec-row"><a href="distinctive.html">Distinctive</a><span>Custom artwork, on larger orders</span></div>
+    </section>
+
+    <section class="teams__block" id="enquire" aria-labelledby="enquire-title">
+      <h2 class="summary__title" id="enquire-title">Tell us what you need</h2>
+      <form class="form" id="enquiry-form" method="post" novalidate>
+        <fieldset class="option">
+          <legend class="option__label">What are you planning?</legend>
+          <div class="radios">
+            <label class="radio"><input type="radio" name="plan" value="clients"><span class="radio__ring" aria-hidden="true"></span><span>Gifts for clients</span></label>
+            <label class="radio"><input type="radio" name="plan" value="team"><span class="radio__ring" aria-hidden="true"></span><span>For our team</span></label>
+            <label class="radio"><input type="radio" name="plan" value="both"><span class="radio__ring" aria-hidden="true"></span><span>Both</span></label>
+          </div>
+          <p class="helper" data-plan-line aria-live="polite"></p>
+        </fieldset>
+
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label class="field__label" for="q-company">Company</label>
+            <input class="field__input" id="q-company" name="company" autocomplete="organization" required data-error="Please tell us your company's name." aria-describedby="q-company-err">
+            <p class="field__error" id="q-company-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="q-name">Your name</label>
+            <input class="field__input" id="q-name" name="name" autocomplete="name" required data-error="Please tell us your name." aria-describedby="q-name-err">
+            <p class="field__error" id="q-name-err" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label class="field__label" for="q-email">Email</label>
+            <input class="field__input" id="q-email" name="email" type="email" autocomplete="email" required aria-describedby="q-email-help q-email-err">
+            <p class="field__help" id="q-email-help">Your quote goes here.</p>
+            <p class="field__error" id="q-email-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="q-phone">Phone</label>
+            <input class="field__input" id="q-phone" name="phone" type="tel" autocomplete="tel" required pattern="\+?[0-9][0-9 \-]{6,18}[0-9]" data-error="Please enter a phone number of at least 8 digits." aria-describedby="q-phone-help q-phone-err">
+            <p class="field__help" id="q-phone-help">With the country code if outside India.</p>
+            <p class="field__error" id="q-phone-err" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <fieldset class="option" data-check-group aria-describedby="q-cal-help q-cal-err">
+          <legend class="option__label">Which calendars?</legend>
+          <div class="radios teams__checks">
+            <label class="check"><input type="checkbox" name="calendars" value="sanctuary"><span class="check__box" aria-hidden="true"></span><span>Sanctuary</span></label>
+            <label class="check"><input type="checkbox" name="calendars" value="polaroid"><span class="check__box" aria-hidden="true"></span><span>Polaroid</span></label>
+            <label class="check"><input type="checkbox" name="calendars" value="distinctive"><span class="check__box" aria-hidden="true"></span><span>Distinctive</span></label>
+            <label class="check"><input type="checkbox" name="calendars" value="unsure"><span class="check__box" aria-hidden="true"></span><span>Not sure yet</span></label>
+          </div>
+          <p class="helper" id="q-cal-help">Pick any. You can change your mind later.</p>
+          <p class="field__error" id="q-cal-err" aria-live="polite"></p>
+        </fieldset>
+
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label class="field__label" for="q-qty">Roughly how many?</label>
+            <input class="field__input" id="q-qty" name="quantity" type="number" inputmode="numeric" min="1" step="1" required data-error="Please tell us roughly how many, 1 or more." aria-describedby="q-qty-help q-qty-err">
+            <p class="field__help" id="q-qty-help">A rough number is fine.</p>
+            <p class="field__error" id="q-qty-err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="q-date">Needed by</label>
+            <input class="field__input" id="q-date" name="neededBy" type="date" required data-error="Please choose the date you need them by, from today on." aria-describedby="q-date-help q-date-err">
+            <p class="field__help" id="q-date-help">We ship 10 December to the first week of January.</p>
+            <p class="field__error" id="q-date-err" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field__label" id="q-logo-label">Your logo <span class="field__optional">(optional)</span></span>
+          <div class="teams__file">
+            <input class="visually-hidden" id="q-logo" name="logo" type="file" accept=".svg,.pdf,.ai,.eps,.png,image/svg+xml,image/png,application/pdf" aria-labelledby="q-logo-label" aria-describedby="q-logo-help q-logo-err">
+            <label class="btn btn--outline" for="q-logo">Choose a file</label>
+            <span class="ui muted" data-file-name>No file chosen</span>
+            <button type="button" class="ui-caps" data-file-clear hidden>Remove</button>
+          </div>
+          <p class="field__help" id="q-logo-help">SVG, PDF, AI, EPS or PNG, up to 10 MB. You can also send it later.</p>
+          <p class="field__error" id="q-logo-err" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="q-notes">Anything else? <span class="field__optional">(optional)</span></label>
+          <textarea class="field__input" id="q-notes" name="notes" rows="3" aria-describedby="q-notes-help"></textarea>
+          <p class="field__help" id="q-notes-help">Who they're for, an idea for the artwork, a delivery abroad.</p>
+        </div>
+
+        <button type="submit" class="btn btn--block">Send enquiry</button>
+        <div class="form-status" id="enquiry-status" role="status" tabindex="-1"></div>
+      </form>
+    </section>
+
+    <section class="teams__block" aria-labelledby="talk-title" data-if-contact>
+      <h2 class="summary__title" id="talk-title">Rather talk it through?</h2>
+      <p>Send us your numbers and your date on <span data-contact-ways></span>.</p>
+      <div class="teams__talk">
+        <a class="btn btn--outline" data-whatsapp="Hi elmuse, we'd like 2027 calendars for our company."><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="img/icons/whatsapp.svg#i"></use></svg>WhatsApp us</a>
+        <p class="ui" data-email></p>
+      </div>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+  <script src="js/config.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/teams.js"></script>
+</body>
+</html>

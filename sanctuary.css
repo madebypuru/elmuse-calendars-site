@@ -1,0 +1,799 @@
+/* The Sanctuary Calendar, standing in a lit room that runs from morning to night.
+   Brand colours and the two type voices live here so they can be swapped in one place. */
+@font-face {
+  font-family: "Regie";
+  src: url("assets/fonts/Regie-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --forest: #2b3d21;
+  --cream: #f7f3ed;
+  --ink: #141414;
+  --lime: #c7ef4e;
+
+  --font-display: "Regie", "Instrument Serif", "Didot", Georgia, serif;
+  --font-text: "Figtree", "Proxima Nova", "Helvetica Neue", Arial, sans-serif; /* stand-in for Proxima Nova */
+
+  --sanc-paper: #f8f2e8;
+  --sanc-birch: #d6a068;      /* honey birch ply, from the product photos */
+  --sanc-burn: #2e1c10;       /* laser-burnt engraving */
+}
+
+#sanctuary, #sanctuary * { box-sizing: border-box; }
+body { margin: 0; background: #1d1b1a; }
+
+.sanc {
+  --tear: 32.636%;            /* the perforation sits at 718 of 2200 px on every month sheet */
+  --tear-f: 0.32636;
+  --ratio: 1.36816;           /* 2200 / 1608 */
+  --sheet-w: 203px;           /* in scene pixels: a 10 in board at 21.8 px per inch (the lamp is 12 in) */
+
+  /* set by sanctuary.js from the pixels behind each group, so text stays readable at every hour */
+  --ui-fg: #141414;
+  --ui-fg-2: #33382d;
+  --ui-head: var(--forest);
+  --ui-glass: rgba(255, 255, 255, .5);
+  --ui-glass-line: rgba(255, 255, 255, .6);
+  --copy-scrim: transparent;
+
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #2a2522;
+  color: var(--ui-fg);
+  font-family: var(--font-text);
+}
+.sanc[data-ink="light"] {
+  --ui-fg: #f7f3ed;
+  --ui-fg-2: #e6dfd3;
+  --ui-head: #f7f3ed;
+}
+
+/* ---------- the room ---------- */
+.sanc__scene { position: absolute; inset: 0; }
+.sanc__canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1344px;
+  height: 752px;
+  transform-origin: 0 0;
+}
+.sanc__bg {
+  position: absolute;
+  inset: 0;
+  width: 1344px;
+  height: 752px;
+  opacity: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+/* the four frames were generated separately: nudge each so the desk line and lamp do not jump in a blend */
+.sanc__bg[data-k="0"] { transform: translateY(1px); }
+.sanc__bg[data-k="2"] { transform: translateY(1.5px); }
+.sanc__bg[data-k="3"] { transform: translateY(1px); }
+
+/* the board stands on the desk, its foot just in front of the wall line (608), leaning on the wall */
+.sanc__canvas { --bx: 670px; }
+.sanc__object {
+  position: absolute;
+  left: calc(var(--bx) - var(--sheet-w) / 2);
+  bottom: calc(752px - 622px);
+  width: var(--sheet-w);
+  /* no 3D lean on the whole board: a perspective transform here makes the browser rasterise the sheet small and blur it */
+  filter: url(#sanc-relight);
+  isolation: isolate;
+}
+.sanc__cast,
+.sanc__contact {
+  position: absolute;
+  pointer-events: none;
+}
+/* the board's shadow on the wall: direction, softness and strength follow the light */
+.sanc__cast {
+  left: calc(var(--bx) - var(--sheet-w) * .5375);
+  width: calc(var(--sheet-w) * 1.075);
+  bottom: calc(752px - 620px);
+  height: calc(var(--sheet-w) * 1.6);
+  border-radius: 6px;
+  background: var(--cast-c, rgba(40, 25, 15, .3));
+  opacity: var(--cast-o, .2);
+  filter: blur(var(--cast-b, 10px));
+  transform: translate(var(--cast-x, 8px), var(--cast-y, 4px)) skewX(var(--cast-k, 0deg));
+  transform-origin: 50% 100%;
+}
+/* soft contact shadow where the board meets the desk */
+.sanc__contact {
+  left: calc(var(--bx) - var(--sheet-w) * .62);
+  width: calc(var(--sheet-w) * 1.24);
+  top: 612px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(30, 18, 8, .75), rgba(30, 18, 8, 0));
+  opacity: var(--contact-o, .4);
+  transform: translateX(var(--contact-x, 0px));
+}
+
+/* light falling across the board and sheets, clipped to the board; each layer blends with the object */
+.sanc__light {
+  position: absolute;
+  z-index: 6;
+  top: calc(var(--sheet-w) * -.03);
+  bottom: 0;
+  left: calc(var(--sheet-w) * -.0375);
+  right: calc(var(--sheet-w) * -.0375);
+  border-radius: calc(var(--sheet-w) * .022);
+  overflow: hidden;
+  pointer-events: none;
+}
+.sanc__light--dir { background: var(--light-dir, none); mix-blend-mode: multiply; }
+.sanc__light--glow { background: var(--light-glow, none); mix-blend-mode: screen; }
+/* the window blind's slats, continuing faintly across the calendar in the afternoon */
+.sanc__light--blind { mix-blend-mode: multiply; opacity: var(--blind-o, 0); }
+.sanc__light--blind b {
+  position: absolute;
+  inset: -50%;
+  background: repeating-linear-gradient(0deg, rgba(120, 70, 30, .5) 0 6px, rgba(120, 70, 30, 0) 6px 17px);
+  transform: rotate(-26deg);
+  filter: blur(1.4px);
+}
+.sanc__peg { z-index: 7 !important; }
+
+/* ---------- postcards pinned on the wall ---------- */
+.sanc__wall { list-style: none; margin: 0; padding: 0; }
+.sanc__slot { position: absolute; }
+.sanc__slot button {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 1px;
+  background: #f8f2e8 top center / 100% auto no-repeat;
+  background-blend-mode: multiply;
+  box-shadow: var(--card-shadow, 2px 3px 4px rgba(30, 18, 8, .3));
+  filter: url(#sanc-relight-wall);
+  cursor: pointer;
+}
+.sanc__slot button::after { /* a small brass pin */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f3dca0, #9b7a3a 70%);
+  box-shadow: .6px 1px 1px rgba(0, 0, 0, .45);
+}
+.sanc__slot:nth-child(3n+1) button { transform: rotate(-1.2deg); }
+.sanc__slot:nth-child(3n+2) button { transform: rotate(.8deg); }
+.sanc__slot:nth-child(3n) button { transform: rotate(-.4deg); }
+
+/* ---------- the sheet ---------- */
+.sanc__sheet-wrap {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 1608 / 2200;
+  perspective: calc(var(--sheet-w) * 4);
+}
+.sanc__sheet {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  touch-action: pan-y;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.sanc__sheet.is-back { transform: rotateY(180deg); }
+.sanc__strip,
+.sanc__body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform-style: preserve-3d;
+}
+.sanc__strip {
+  top: 0;
+  height: var(--tear);
+  transform-origin: 100% 100%;
+  touch-action: none;
+  cursor: grab;
+}
+.sanc__strip.is-dragging { cursor: grabbing; }
+.sanc__body { top: var(--tear); bottom: 0; }
+
+.sanc__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background-color: var(--sanc-paper);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-blend-mode: multiply; /* warm off-white card, as in the photos */
+}
+.sanc__face--back { transform: rotateY(180deg); }
+.sanc__strip .sanc__face { background-position: top center; }
+.sanc__body .sanc__face {
+  background-position: bottom center;
+  box-shadow: 0 1px 1px rgba(20, 20, 20, .05), 0 6px 18px -10px rgba(20, 20, 20, .14);
+}
+
+/* the micro-perforation between artwork and grid, barely there */
+.sanc__body .sanc__face::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, rgba(20, 20, 20, .16) 0 2px, transparent 2px 5px);
+}
+/* once torn, the sheet keeps a fibrous perforated top edge */
+.sanc__sheet.is-torn .sanc__body .sanc__face {
+  -webkit-mask: radial-gradient(circle at 2.5px 0, transparent 1.3px, #000 1.6px) top left / 5px 100% repeat-x;
+  mask: radial-gradient(circle at 2.5px 0, transparent 1.3px, #000 1.6px) top left / 5px 100% repeat-x;
+}
+.sanc__sheet.is-torn .sanc__body .sanc__face::before { display: none; }
+.sanc__sheet.is-torn .sanc__strip { visibility: hidden; }
+.sanc__sheet.is-closing .sanc__strip { cursor: pointer; touch-action: pan-y; }
+.sanc__sheet.is-closing .sanc__body .sanc__face::before { display: none; }
+
+.sanc__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(90deg, rgba(20, 20, 20, .18), rgba(20, 20, 20, 0) 60%);
+  transform: translateZ(1px);
+}
+
+/* QR hotspot on the journal side, over the printed "more for you" code */
+.sanc__qr {
+  position: absolute;
+  z-index: 3;
+  left: 81.6%;
+  top: 81.7%;
+  width: 12.4%;
+  height: 9.1%;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+.sanc__qr::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 8px;
+  border: 1.5px solid var(--forest);
+  box-shadow: 0 0 0 4px rgba(199, 239, 78, .45);
+  opacity: .9;
+  animation: sanc-pulse 2.4s ease-in-out infinite;
+}
+.sanc__qr.is-closing { left: 65.4%; top: 23.2%; width: 9.2%; height: 6.8%; }
+@keyframes sanc-pulse {
+  0%, 100% { transform: scale(1); opacity: .85; }
+  50% { transform: scale(1.06); opacity: .45; }
+}
+
+/* ---------- the torn postcard, held ---------- */
+.sanc__postcard {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(var(--sheet-w) * var(--ratio) * var(--tear-f));
+  perspective: calc(var(--sheet-w) * 4);
+  cursor: pointer;
+}
+.sanc__postcard[hidden] { display: none; }
+.sanc__postcard-in {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.45, .05, .25, 1);
+}
+.sanc__postcard.is-back .sanc__postcard-in { transform: rotateY(180deg); }
+.sanc__postcard .sanc__face {
+  box-shadow: 0 1px 2px rgba(20, 20, 20, .08), 0 18px 30px -18px rgba(20, 20, 20, .28);
+}
+.sanc__postcard .sanc__face--front { background-position: top center; }
+.sanc__postcard .sanc__face--back { background-position: top center; }
+.sanc__postcard .sanc__face {
+  -webkit-mask: radial-gradient(circle at 2.5px 100%, transparent 1.3px, #000 1.6px) bottom left / 5px 100% repeat-x;
+  mask: radial-gradient(circle at 2.5px 100%, transparent 1.3px, #000 1.6px) bottom left / 5px 100% repeat-x;
+}
+
+/* ---------- birch-ply backboard (built from the product photos) ----------
+   A portrait board a little larger than the sheets, rounded corners; a thin strip
+   fixed across the bottom as a ledge with a burnt laser-cut edge; below it a plain
+   band where the logo is engraved; a small wooden peg clips the stack at the side. */
+.sanc__board {
+  position: absolute;
+  z-index: 0;
+  top: calc(var(--sheet-w) * -.03);
+  bottom: 0;
+  left: calc(var(--sheet-w) * -.0375);
+  right: calc(var(--sheet-w) * -.0375);
+  border-radius: calc(var(--sheet-w) * .022);
+  background: var(--sanc-birch) url("assets/sanctuary/birch-grain.jpg") top center / 100% auto repeat-y;
+  box-shadow:
+    inset 0 0 0 1px rgba(120, 70, 25, .12),
+    0 2px 0 #b7804a,                      /* the ply edge where the board meets the desk */
+    0 18px 26px -18px rgba(60, 35, 15, .32);
+}
+/* a few loose sheets peeking behind the top one */
+.sanc__stack i {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(var(--sheet-w) * var(--ratio));
+  background: #f3ebde;
+  box-shadow: 0 1px 1px rgba(60, 40, 20, .1);
+}
+.sanc__stack i:first-child { transform: translate(2px, 2px) rotate(.5deg); transform-origin: 0 100%; }
+.sanc__stack[hidden] { display: none; }
+.sanc__stack i:last-child {
+  background: #f3ebde top center / 100% auto no-repeat;
+  background-blend-mode: multiply;
+}
+
+.sanc__base {
+  position: relative;
+  z-index: 2;
+  width: calc(var(--sheet-w) * 1.075);
+  margin-left: calc(var(--sheet-w) * -.0375);
+  pointer-events: none;
+}
+/* the ledge strip: burnt top edge, birch face, burnt underside line; overhangs a touch */
+.sanc__ledge {
+  position: relative;
+  height: calc(var(--sheet-w) * .036);
+  margin: calc(var(--sheet-w) * -.008) calc(var(--sheet-w) * -.012) 0;
+  border-radius: 2px;
+  background:
+    linear-gradient(to bottom,
+      #2a1a10 0, #3b2516 26%, #8a5a30 30%, rgba(0, 0, 0, 0) 44%,
+      rgba(0, 0, 0, 0) 84%, #5a3a20 92%, #2a1a10 100%),
+    #d39b62 url("assets/sanctuary/birch-grain.jpg") center / 140% auto;
+  box-shadow: 0 3px 4px -2px rgba(50, 28, 10, .35);
+}
+.sanc__band {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--sheet-w) * .17);
+  border-radius: 0 0 calc(var(--sheet-w) * .022) calc(var(--sheet-w) * .022);
+  background: url("assets/sanctuary/birch-grain.jpg") center / 100% 100% no-repeat;
+}
+.sanc__engrave {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: "Figtree", var(--font-text);
+  font-weight: 600;
+  font-size: calc(var(--sheet-w) * .052);
+  line-height: 1;
+  letter-spacing: -.01em;
+  color: var(--sanc-burn);
+  text-shadow: 0 0 1px rgba(45, 25, 10, .55), 0 .5px 0 rgba(255, 225, 180, .25);
+  transform-origin: center;
+}
+.sanc__engrave sup { font-size: .55em; margin-left: .04em; vertical-align: .55em; }
+
+/* the clothes-peg on the right edge, just below the perforation: two jaws and a spring */
+.sanc__peg {
+  position: absolute;
+  z-index: 3;
+  top: calc(var(--sheet-w) * var(--ratio) * .395);
+  left: calc(var(--sheet-w) * .952);
+  width: calc(var(--sheet-w) * .19);
+  height: calc(var(--sheet-w) * .05);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 2px rgba(50, 28, 10, .35));
+}
+.sanc__peg::before,
+.sanc__peg::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 47%;
+  background: linear-gradient(to bottom, #dcaa70, #c58a4f 70%, #a8713e);
+}
+.sanc__peg::before { top: 0; border-radius: 1px 40% 2px 1px / 1px 60% 2px 1px; }
+.sanc__peg::after { bottom: 0; border-radius: 1px 2px 40% 1px / 1px 2px 60% 1px; background: linear-gradient(to bottom, #cf9a5f, #b9804a 60%, #996535); }
+.sanc__peg i {
+  position: absolute;
+  z-index: 1;
+  top: 12%;
+  bottom: 12%;
+  left: 52%;
+  width: 11%;
+  border-radius: 3px;
+  background:
+    repeating-linear-gradient(to right, rgba(0, 0, 0, .35) 0 1px, transparent 1px 3px),
+    linear-gradient(to bottom, #8f8b84, #d3cfc7 45%, #6f6b65);
+}
+
+/* ---------- words on the wall ---------- */
+.sanc__copy {
+  position: absolute;
+  z-index: 2;
+  left: var(--copy-x, 72px);
+  top: var(--copy-y, 120px);
+  width: var(--copy-w, 400px);
+  color: var(--ui-fg);
+  text-shadow: var(--copy-halo, none);
+}
+.sanc__copy::before { /* a soft patch that only appears when the wall behind is mid-tone */
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -30px -40px;
+  border-radius: 80px;
+  background: var(--copy-scrim);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.sanc__theme {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ui-fg-2);
+}
+.sanc__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 4.2vw, 62px);
+  line-height: 1.02;
+  color: var(--ui-head);
+}
+.sanc__lede {
+  margin: 20px 0 0;
+  max-width: 34ch;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ui-fg-2);
+}
+
+/* ---------- glass control bar (time of day, sun/moon, volume) ---------- */
+.sanc__bar {
+  position: absolute;
+  z-index: 4;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--bar-fg, var(--ui-fg));
+}
+.sanc__pill,
+.sanc__orb,
+.sanc__btn {
+  background: var(--glass, var(--ui-glass));
+  border: 1px solid var(--glass-line, var(--ui-glass-line));
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+}
+.sanc__pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 999px;
+}
+.sanc__pill-ico { display: grid; place-items: center; opacity: .85; }
+.sanc__orb {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  color: inherit;
+  cursor: pointer;
+}
+.sanc__orb .moon { display: none; }
+.sanc__orb.is-night .sun { display: none; }
+.sanc__orb.is-night .moon { display: block; }
+.sanc__mute {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-left: -6px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.sanc__mute .off { display: none; }
+.sanc__mute[aria-pressed="true"] .on { display: none; }
+.sanc__mute[aria-pressed="true"] .off { display: inline; }
+.sanc__slider {
+  position: relative;
+  width: 132px;
+  height: 32px;
+  touch-action: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.sanc__pill--vol .sanc__slider { width: 96px; }
+.sanc__ticks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 10px;
+  margin-top: -5px;
+  background: repeating-linear-gradient(90deg, currentColor 0 1px, transparent 1px 6px);
+  opacity: .38;
+  -webkit-mask: linear-gradient(90deg, #000 var(--fill, 50%), rgba(0, 0, 0, .45) var(--fill, 50%));
+  mask: linear-gradient(90deg, #000 var(--fill, 50%), rgba(0, 0, 0, .45) var(--fill, 50%));
+}
+.sanc__thumb {
+  position: absolute;
+  top: 50%;
+  left: var(--fill, 50%);
+  width: 2px;
+  height: 18px;
+  margin: -9px 0 0 -1px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+/* ---------- controls near the calendar, on the desk ---------- */
+.sanc__controls {
+  position: absolute;
+  z-index: 3;
+  left: var(--ctl-x, 50%);
+  top: var(--ctl-y, 80%);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  color: var(--ctl-fg, var(--ui-fg));
+}
+.sanc__controls .sanc__btn,
+.sanc__controls .sanc__hint {
+  --glass: var(--ctl-glass);
+  --glass-line: var(--ctl-glass-line);
+}
+.sanc__nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--ctl-glass);
+  border: 1px solid var(--ctl-glass-line);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+}
+.sanc__nav .sanc__btn { background: transparent; border-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.sanc__month {
+  margin: 0;
+  min-width: 7.5ch;
+  padding: 0 4px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1;
+  color: inherit;
+  text-shadow: var(--ctl-shadow, none);
+}
+.sanc__actions { display: flex; flex-wrap: nowrap; justify-content: center; gap: 8px; }
+.sanc__actions[hidden] { display: none; }
+.sanc__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font: 500 14.5px/1 var(--font-text);
+  white-space: nowrap;
+  color: inherit;
+  cursor: pointer;
+}
+.sanc__btn--icon { padding: 0; width: 40px; }
+.sanc__btn[hidden], .sanc__qr[hidden] { display: none; }
+.sanc__btn--solid { background: var(--forest) !important; border-color: var(--forest) !important; color: var(--cream); }
+.sanc__btn:disabled { opacity: .45; cursor: default; }
+.sanc__hint {
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: center;
+  color: inherit;
+  background: var(--ctl-glass);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+}
+
+#sanctuary :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+#sanctuary .sanc__qr:focus-visible { outline-color: var(--forest); }
+.sanc__phone :focus-visible, .sanc__zoom :focus-visible { outline-color: var(--forest) !important; }
+
+/* ---------- QR phone panel ---------- */
+.sanc__phone {
+  width: min(300px, calc(100vw - 32px));
+  max-height: min(690px, calc(100svh - 32px));
+  padding: 9px;
+  border: 0;
+  border-radius: 42px;
+  background: var(--ink);
+  color: var(--ink);
+  box-shadow: 0 30px 60px -20px rgba(20, 20, 20, .45);
+  overflow: hidden;
+}
+.sanc__phone::backdrop { background: rgba(20, 20, 20, .32); }
+.sanc__phone-screen {
+  max-height: calc(min(690px, calc(100svh - 32px)) - 18px);
+  overflow-y: auto;
+  padding: 12px 20px 22px;
+  border-radius: 33px;
+  background: var(--cream);
+  font-family: var(--font-text);
+}
+.sanc__phone-bar {
+  width: 76px;
+  height: 22px;
+  margin: 0 auto 10px;
+  border-radius: 999px;
+  background: var(--ink);
+}
+.sanc__phone-head { display: flex; align-items: center; justify-content: space-between; }
+.sanc__phone-kicker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--sanc-muted);
+}
+.sanc__phone-close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -12px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--forest);
+  cursor: pointer;
+}
+.sanc__phone-title {
+  margin: 2px 0 4px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.05;
+  color: var(--forest);
+}
+.sanc__phone-unlock { margin: 0 0 14px; font-size: 13px; line-height: 1.45; color: var(--sanc-muted); }
+.sanc__phone-list { list-style: none; margin: 0; padding: 0; }
+.sanc__phone-list li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px 0;
+  border-top: 1px solid rgba(43, 61, 33, .14);
+}
+.sanc__phone-ico {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--forest);
+  color: var(--cream);
+}
+.sanc__phone-list .k {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--sanc-muted);
+}
+.sanc__phone-list .t { display: block; margin-top: 3px; font-size: 15px; font-weight: 600; line-height: 1.3; color: var(--ink); }
+.sanc__phone-list .d { display: block; margin-top: 2px; font-size: 13px; line-height: 1.4; color: var(--sanc-muted); }
+.sanc__phone-note {
+  margin: 8px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(43, 61, 33, .14);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--sanc-muted);
+}
+
+/* ---------- look closer ---------- */
+.sanc__zoom {
+  width: min(1040px, calc(100vw - 32px));
+  max-width: none;
+  height: calc(100svh - 32px);
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: var(--cream);
+  color: var(--ink);
+  overflow: hidden;
+}
+.sanc__zoom[open] { display: flex; flex-direction: column; }
+.sanc__zoom::backdrop { background: rgba(20, 20, 20, .5); }
+.sanc__zoom-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 8px 8px 20px;
+  border-bottom: 1px solid rgba(43, 61, 33, .12);
+}
+.sanc__zoom-title { margin: 0; font-family: var(--font-display); font-size: 24px; color: var(--forest); }
+.sanc__zoom-scroll { flex: 1; overflow: auto; background: #e9e3d8; }
+.sanc__zoom-scroll img { display: block; width: 100%; height: auto; }
+
+
+/* on wider screens the month and the actions share one row, so the controls fit the shallow desk */
+@media (min-width: 900px) {
+  .sanc__controls {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 8px;
+  }
+  .sanc__nav { grid-column: 1; grid-row: 1; }
+  .sanc__actions { grid-column: 2; grid-row: 1; }
+  .sanc__hint { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* ---------- phone and narrow screens ---------- */
+@media (max-width: 899px) {
+  .sanc { min-height: 640px; }
+  .sanc__title { font-size: clamp(34px, 9vw, 48px); }
+  .sanc__theme { margin-bottom: 8px; font-size: 12px; }
+  .sanc__lede { margin-top: 12px; font-size: 15px; line-height: 1.5; max-width: none; }
+  .sanc__bar { top: 12px; gap: 6px; }
+  .sanc__pill { padding: 0 10px; gap: 6px; }
+  .sanc__slider { width: 104px; }
+  .sanc__pill--vol .sanc__slider { width: 72px; }
+  .sanc__pill-ico { display: none; }
+  .sanc__month { font-size: 23px; min-width: 6.6ch; }
+  .sanc__btn { font-size: 14px; padding: 0 14px; }
+  .sanc__btn--icon { padding: 0; }
+  .sanc__hint { font-size: 12.5px; padding: 5px 10px; }
+  .sanc__zoom { width: 100vw; height: 100svh; border-radius: 0; }
+  .sanc__zoom-scroll img { width: 1000px; max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sanc__qr::after { animation: none; }
+  .sanc__postcard-in { transition: none; }
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Polaroid Calendar · elmuse 2027</title>
+  <meta name="description" content="The Polaroid Calendar by elmuse: twelve stamp cards, one Indian city a month, carried behind a clear phone cover.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Instrument+Serif&display=swap">
+  <link rel="preload" as="font" type="font/otf" href="assets/fonts/Regie-Regular.otf" crossorigin>
+  <link rel="stylesheet" href="polaroid.css">
+  <!-- standalone page only: the merged page has its own body styles and one shared bar -->
+  <style data-dev-bar>
+    body { margin: 0; background: #2a2219; }
+    .pol-devbar {
+      position: fixed; z-index: 50; top: 8px; right: 8px;
+      font: 500 12px/1 system-ui, sans-serif; color: #f7f3ed;
+      background: rgba(18, 16, 22, .62); border-radius: 10px;
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    }
+    .pol-devbar summary { cursor: pointer; padding: 8px 10px; list-style: none; }
+    .pol-devbar summary::-webkit-details-marker { display: none; }
+    .pol-devbar label { display: flex; align-items: center; gap: 8px; padding: 0 10px 10px; }
+    .pol-devbar input { width: 140px; }
+  </style>
+</head>
+<body>
+<main>
+  <section id="polaroid" class="pol" aria-labelledby="pol-title" data-mode="cover">
+
+    <!-- the table: one oak top seen from above at four times of day; everything inside is placed in image pixels -->
+    <div class="pol__scene">
+      <div class="pol__canvas" id="pol-canvas">
+        <img class="pol__bg" data-k="0" alt="" src="assets/scene/table/morning.jpg">
+        <img class="pol__bg" data-k="1" alt="" src="assets/scene/table/afternoon.jpg">
+        <img class="pol__bg" data-k="2" alt="" src="assets/scene/table/dusk.jpg">
+        <img class="pol__bg" data-k="3" alt="" src="assets/scene/table/night.jpg">
+
+        <div class="pol__phone" id="pol-phone" role="img" aria-label="">
+          <div class="pol__shadow" id="pol-shadow" aria-hidden="true"></div>
+          <div class="pol__back" aria-hidden="true"></div>
+          <div class="pol__bump" aria-hidden="true">
+            <span class="pol__lens pol__lens--a"></span>
+            <span class="pol__lens pol__lens--b"></span>
+            <span class="pol__flash"></span>
+            <span class="pol__sensor"></span>
+          </div>
+          <div class="pol__holder" id="pol-holder" aria-hidden="true"><span class="pol__ring"></span></div>
+          <div class="pol__slot" id="pol-slot" aria-hidden="true"><span class="pol__target" id="pol-target"></span></div>
+          <div class="pol__lips" id="pol-lips" aria-hidden="true"></div>
+          <span class="pol__lit" aria-hidden="true"></span>
+          <div class="pol__case" id="pol-case" aria-hidden="true">
+            <div class="pol__shell"><div class="pol__gloss"></div></div>
+            <span class="pol__cutout"></span>
+          </div>
+        </div>
+
+        <div class="pol__fan" id="pol-fan" role="group" aria-label="The twelve cards"></div>
+      </div>
+    </div>
+
+    <div class="pol__copy" id="pol-copy">
+      <p class="pol__theme">The year that travels</p>
+      <h2 id="pol-title" class="pol__title">The Polaroid Calendar</h2>
+      <p class="pol__lede">Twelve stamp cards on textured paper, one Indian city for every month. Slip this month’s card behind a clear phone cover and the year goes where you go.</p>
+      <p class="pol__note">For company gifting, we add your brand as a sticker.</p>
+    </div>
+
+    <div class="pol__controls" id="pol-controls">
+      <div class="pol__nav">
+        <button type="button" class="pol__btn pol__btn--icon" id="pol-prev" aria-label="Previous card">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="pol__btn pol__btn--solid" id="pol-slip">Slip it in</button>
+        <button type="button" class="pol__btn pol__btn--icon" id="pol-next" aria-label="Next card">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="pol__mode" role="radiogroup" aria-label="How it holds the card">
+        <button type="button" role="radio" aria-checked="true" data-mode="cover">Clear cover</button>
+        <button type="button" role="radio" aria-checked="false" data-mode="magsafe">MagSafe holder</button>
+      </div>
+      <p class="pol__addon" id="pol-addon">Optional add-on, for phones without a clear cover</p>
+    </div>
+
+    <p class="pol__sr" id="pol-live" aria-live="polite"></p>
+
+    <svg class="pol__defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <!-- a wide filter region, so the long afternoon shadow and a lifted card's shadow are not cut off -->
+      <filter id="pol-relight" color-interpolation-filters="sRGB" x="-60%" y="-60%" width="220%" height="220%">
+        <feColorMatrix id="pol-relight-m" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+      </filter>
+    </svg>
+  </section>
+</main>
+
+<!-- temporary standalone controls: the merged page replaces these with its one shared bar -->
+<details class="pol-devbar" data-dev-bar>
+  <summary>Time · Sound</summary>
+  <label>Time <input type="range" id="pol-dev-time" min="0" max="1000" value="333" aria-label="Time of day, morning to night"></label>
+  <label>Sound <input type="range" id="pol-dev-vol" min="0" max="100" value="0" aria-label="Volume"></label>
+</details>
+<script data-dev-bar>
+  (function () {
+    var t = document.getElementById('pol-dev-time'), v = document.getElementById('pol-dev-vol');
+    // the visitor's clock, on the same curve as the Sanctuary slider: 0 morning, 1/3 afternoon, 2/3 dusk, 1 night
+    var P = [[0, 1], [5, 1], [6.5, 0], [10, 0.1], [13.5, 0.333], [16.5, 0.45], [18.5, 0.667], [20, 0.85], [21.5, 1], [24, 1]];
+    var d = new Date(), h = d.getHours() + d.getMinutes() / 60, tt = 1;
+    for (var i = 1; i < P.length; i++) if (h <= P[i][0]) { tt = P[i - 1][1] + (P[i][1] - P[i - 1][1]) * (h - P[i - 1][0]) / (P[i][0] - P[i - 1][0]); break; }
+    t.value = Math.round(tt * 1000);
+    function time() { window.dispatchEvent(new CustomEvent('elmuse:time', { detail: { t: t.value / 1000 } })); }
+    function vol() { window.dispatchEvent(new CustomEvent('elmuse:volume', { detail: { v: v.value / 100 } })); }
+    t.addEventListener('input', time);
+    v.addEventListener('input', vol);
+    window.addEventListener('DOMContentLoaded', function () { time(); vol(); });
+  })();
+</script>
+<script src="polaroid.js"></script>
+</body>
+</html>

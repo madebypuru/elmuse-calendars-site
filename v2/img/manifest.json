@@ -1,0 +1,1608 @@
+{
+  "version": 1,
+  "grade": "Gentle warm grade applied identically to every photo: red +2.5%, blue -3.5%, a soft S-curve (strength 0.16), blacks lifted to 3.5%, whites rolled off at 97.5%, saturation 96%.",
+  "images": [
+    {
+      "id": "sanctuary-sheets-golden-hour",
+      "product": "sanctuary",
+      "shows": "loose month sheets spread across a table in low evening sun, the plywood board at the edge",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheets-golden-hour-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheets-golden-hour-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.55
+      ],
+      "uses": [
+        "hero",
+        "moment"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Sanctuary month sheets spread on a table in evening sun",
+      "source": "DSC07649"
+    },
+    {
+      "id": "sanctuary-sheets-golden-hour-tall",
+      "product": "sanctuary",
+      "shows": "loose month sheets spread across a table in low evening sun",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheets-golden-hour-tall-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheets-golden-hour-tall-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "hero",
+        "moment"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Sanctuary month sheets in evening sun",
+      "source": "DSC07649"
+    },
+    {
+      "id": "sanctuary-hand-on-sheet",
+      "product": "sanctuary",
+      "shows": "a hand with bangles resting on the June sheet among other sheets in warm sun",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/sanctuary/sanctuary-hand-on-sheet-2400.webp",
+        "small": "img/sanctuary/sanctuary-hand-on-sheet-1200.webp"
+      },
+      "focal": [
+        0.35,
+        0.5
+      ],
+      "uses": [
+        "moment",
+        "hero"
+      ],
+      "option": null,
+      "tone": "dark",
+      "alt": "A hand resting on the June sheet in warm sunlight",
+      "source": "DSC07660"
+    },
+    {
+      "id": "sanctuary-hand-on-sheet-tall",
+      "product": "sanctuary",
+      "shows": "a hand with bangles resting on the June sheet in warm sun",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-hand-on-sheet-tall-2400.webp",
+        "small": "img/sanctuary/sanctuary-hand-on-sheet-tall-1200.webp"
+      },
+      "focal": [
+        0.4,
+        0.5
+      ],
+      "uses": [
+        "moment"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "A hand resting on the June sheet",
+      "source": "DSC07660"
+    },
+    {
+      "id": "sanctuary-hands-lift-sheet",
+      "product": "sanctuary",
+      "shows": "two hands lifting the June sheet off the pile beside the board, warm light",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/sanctuary/sanctuary-hands-lift-sheet-2400.webp",
+        "small": "img/sanctuary/sanctuary-hands-lift-sheet-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.6
+      ],
+      "uses": [
+        "moment"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Hands lifting a Sanctuary sheet from the pile",
+      "source": "DSC07662"
+    },
+    {
+      "id": "sanctuary-hand-sets-sheet",
+      "product": "sanctuary",
+      "shows": "a hand slides the January sheet onto the standing board, peg on the edge",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-hand-sets-sheet-2400.webp",
+        "small": "img/sanctuary/sanctuary-hand-sets-sheet-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.6
+      ],
+      "uses": [
+        "moment",
+        "story"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "A hand placing the January sheet on the Sanctuary board",
+      "source": "DSC07674"
+    },
+    {
+      "id": "sanctuary-hands-settle-sheet",
+      "product": "sanctuary",
+      "shows": "two hands settle the November sheet onto the board's ledge",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-hands-settle-sheet-2400.webp",
+        "small": "img/sanctuary/sanctuary-hands-settle-sheet-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.6
+      ],
+      "uses": [
+        "moment",
+        "story"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Hands settling the November sheet on the board",
+      "source": "DSC07694"
+    },
+    {
+      "id": "sanctuary-hands-fan-sheets",
+      "product": "sanctuary",
+      "shows": "hands fanning all twelve sheets so each photo band shows",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/sanctuary/sanctuary-hands-fan-sheets-2400.webp",
+        "small": "img/sanctuary/sanctuary-hands-fan-sheets-1200.webp"
+      },
+      "focal": [
+        0.6,
+        0.5
+      ],
+      "uses": [
+        "moment",
+        "hero"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Hands fanning out the twelve Sanctuary sheets",
+      "source": "DSC07855"
+    },
+    {
+      "id": "sanctuary-hands-fan-sheets-tall",
+      "product": "sanctuary",
+      "shows": "hands fanning all twelve sheets",
+      "ratio": "4:5",
+      "width": 1919,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-hands-fan-sheets-tall-2400.webp",
+        "small": "img/sanctuary/sanctuary-hands-fan-sheets-tall-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "moment"
+      ],
+      "option": null,
+      "tone": "dark",
+      "alt": "Hands fanning out the Sanctuary sheets",
+      "source": "DSC07855"
+    },
+    {
+      "id": "sanctuary-board-march",
+      "product": "sanctuary",
+      "shows": "the board standing on a pale table with the March sheet",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-board-march-2400.webp",
+        "small": "img/sanctuary/sanctuary-board-march-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.55
+      ],
+      "uses": [
+        "hero",
+        "option-swap"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Sanctuary board standing with the March sheet",
+      "source": "DSC07680"
+    },
+    {
+      "id": "sanctuary-board-december",
+      "product": "sanctuary",
+      "shows": "the board standing on a pale table with the December sheet",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-board-december-2400.webp",
+        "small": "img/sanctuary/sanctuary-board-december-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.55
+      ],
+      "uses": [
+        "hero",
+        "option-swap"
+      ],
+      "option": null,
+      "tone": "dark",
+      "alt": "Sanctuary board standing with the December sheet",
+      "source": "DSC07696"
+    },
+    {
+      "id": "sanctuary-board-standing-peg",
+      "product": "sanctuary",
+      "shows": "three-quarter view of the board leaning back on its crossed foot, December sheet and peg",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-board-standing-peg-2400.webp",
+        "small": "img/sanctuary/sanctuary-board-standing-peg-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.55
+      ],
+      "uses": [
+        "hero",
+        "story"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Sanctuary board standing at an angle with a peg",
+      "source": "DSC07776"
+    },
+    {
+      "id": "sanctuary-side-stand",
+      "product": "sanctuary",
+      "shows": "side view: the ledge plate passes through the board and becomes the foot",
+      "ratio": "3:2",
+      "width": 2400,
+      "height": 1600,
+      "files": {
+        "large": "img/sanctuary/sanctuary-side-stand-2400.webp",
+        "small": "img/sanctuary/sanctuary-side-stand-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "detail",
+        "story"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Side view of how the Sanctuary board stands",
+      "source": "DSC07820"
+    },
+    {
+      "id": "sanctuary-back-hanging-plate",
+      "product": "sanctuary",
+      "shows": "the back of the board with the brass hanging plate near the top",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-back-hanging-plate-2400.webp",
+        "small": "img/sanctuary/sanctuary-back-hanging-plate-1200.webp"
+      },
+      "focal": [
+        0.6,
+        0.3
+      ],
+      "uses": [
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Back of the Sanctuary board with its brass hanging plate",
+      "source": "DSC07702"
+    },
+    {
+      "id": "sanctuary-peg-todo-note",
+      "product": "sanctuary",
+      "shows": "the wooden peg clips a to-do note to the board edge over the December sheet",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-peg-todo-note-2400.webp",
+        "small": "img/sanctuary/sanctuary-peg-todo-note-1200.webp"
+      },
+      "focal": [
+        0.45,
+        0.6
+      ],
+      "uses": [
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Wooden peg clipping a to-do note to the board",
+      "source": "DSC07783"
+    },
+    {
+      "id": "sanctuary-engraving",
+      "product": "sanctuary",
+      "shows": "the elmuse wordmark laser-engraved into the birch ledge, slot line above",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/sanctuary/sanctuary-engraving-2400.webp",
+        "small": "img/sanctuary/sanctuary-engraving-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.65
+      ],
+      "uses": [
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "elmuse engraved into the birch plywood ledge",
+      "source": "DSC07753"
+    },
+    {
+      "id": "sanctuary-edge-cross",
+      "product": "sanctuary",
+      "shows": "the burnt laser edges where board and ledge plate cross",
+      "ratio": "3:2",
+      "width": 2400,
+      "height": 1600,
+      "files": {
+        "large": "img/sanctuary/sanctuary-edge-cross-2400.webp",
+        "small": "img/sanctuary/sanctuary-edge-cross-1200.webp"
+      },
+      "focal": [
+        0.45,
+        0.5
+      ],
+      "uses": [
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Laser-cut plywood edges where the board meets the ledge",
+      "source": "DSC07756"
+    },
+    {
+      "id": "sanctuary-peg-in-hand",
+      "product": "sanctuary",
+      "shows": "fingers squeeze open the wooden clothes peg",
+      "ratio": "3:2",
+      "width": 2400,
+      "height": 1600,
+      "files": {
+        "large": "img/sanctuary/sanctuary-peg-in-hand-2400.webp",
+        "small": "img/sanctuary/sanctuary-peg-in-hand-1200.webp"
+      },
+      "focal": [
+        0.55,
+        0.5
+      ],
+      "uses": [
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Fingers opening the wooden peg",
+      "source": "DSC07768"
+    },
+    {
+      "id": "sanctuary-sheets-fanned",
+      "product": "sanctuary",
+      "shows": "the twelve sheets fanned in an arc, photo bands stepping round",
+      "ratio": "1:1",
+      "width": 2400,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheets-fanned-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheets-fanned-1200.webp"
+      },
+      "focal": [
+        0.65,
+        0.5
+      ],
+      "uses": [
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Twelve Sanctuary sheets fanned in an arc",
+      "source": "DSC07858"
+    },
+    {
+      "id": "sanctuary-journal-back",
+      "product": "sanctuary",
+      "shows": "the back of a sheet: journal prompts, lines, QR codes and the tear-off postcard panel",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-journal-back-2400.webp",
+        "small": "img/sanctuary/sanctuary-journal-back-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "detail",
+        "story"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Back of a Sanctuary sheet with journal page and postcard",
+      "source": "DSC07824"
+    },
+    {
+      "id": "sanctuary-postcard-qr",
+      "product": "sanctuary",
+      "shows": "close up of the postcard panel with its QR code and elmuse mark",
+      "ratio": "3:2",
+      "width": 2400,
+      "height": 1600,
+      "files": {
+        "large": "img/sanctuary/sanctuary-postcard-qr-2400.webp",
+        "small": "img/sanctuary/sanctuary-postcard-qr-1200.webp"
+      },
+      "focal": [
+        0.55,
+        0.45
+      ],
+      "uses": [
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Postcard panel with QR code on the back of a sheet",
+      "source": "DSC07848"
+    },
+    {
+      "id": "sanctuary-sheet-jan",
+      "product": "sanctuary",
+      "shows": "the January sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-jan-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-jan-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "jan"
+      },
+      "tone": "light",
+      "alt": "Sanctuary January sheet",
+      "source": "DSC07821"
+    },
+    {
+      "id": "sanctuary-sheet-feb",
+      "product": "sanctuary",
+      "shows": "the February sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-feb-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-feb-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "feb"
+      },
+      "tone": "light",
+      "alt": "Sanctuary February sheet",
+      "source": "DSC07825"
+    },
+    {
+      "id": "sanctuary-sheet-mar",
+      "product": "sanctuary",
+      "shows": "the March sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-mar-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-mar-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "mar"
+      },
+      "tone": "light",
+      "alt": "Sanctuary March sheet",
+      "source": "DSC07827"
+    },
+    {
+      "id": "sanctuary-sheet-apr",
+      "product": "sanctuary",
+      "shows": "the April sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-apr-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-apr-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "apr"
+      },
+      "tone": "light",
+      "alt": "Sanctuary April sheet",
+      "source": "DSC07829"
+    },
+    {
+      "id": "sanctuary-sheet-may",
+      "product": "sanctuary",
+      "shows": "the May sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-may-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-may-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "may"
+      },
+      "tone": "light",
+      "alt": "Sanctuary May sheet",
+      "source": "DSC07831"
+    },
+    {
+      "id": "sanctuary-sheet-jun",
+      "product": "sanctuary",
+      "shows": "the June sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-jun-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-jun-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "jun"
+      },
+      "tone": "light",
+      "alt": "Sanctuary June sheet",
+      "source": "DSC07833"
+    },
+    {
+      "id": "sanctuary-sheet-jul",
+      "product": "sanctuary",
+      "shows": "the July sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-jul-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-jul-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "jul"
+      },
+      "tone": "light",
+      "alt": "Sanctuary July sheet",
+      "source": "DSC07836"
+    },
+    {
+      "id": "sanctuary-sheet-aug",
+      "product": "sanctuary",
+      "shows": "the August sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-aug-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-aug-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "aug"
+      },
+      "tone": "light",
+      "alt": "Sanctuary August sheet",
+      "source": "DSC07838"
+    },
+    {
+      "id": "sanctuary-sheet-sep",
+      "product": "sanctuary",
+      "shows": "the September sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-sep-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-sep-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "sep"
+      },
+      "tone": "light",
+      "alt": "Sanctuary September sheet",
+      "source": "DSC07840"
+    },
+    {
+      "id": "sanctuary-sheet-oct",
+      "product": "sanctuary",
+      "shows": "the October sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-oct-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-oct-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "oct"
+      },
+      "tone": "light",
+      "alt": "Sanctuary October sheet",
+      "source": "DSC07842"
+    },
+    {
+      "id": "sanctuary-sheet-nov",
+      "product": "sanctuary",
+      "shows": "the November sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-nov-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-nov-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "nov"
+      },
+      "tone": "light",
+      "alt": "Sanctuary November sheet",
+      "source": "DSC07844"
+    },
+    {
+      "id": "sanctuary-sheet-dec",
+      "product": "sanctuary",
+      "shows": "the December sheet flat: photo band, then the month grid",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/sanctuary/sanctuary-sheet-dec-2400.webp",
+        "small": "img/sanctuary/sanctuary-sheet-dec-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "dec"
+      },
+      "tone": "light",
+      "alt": "Sanctuary December sheet",
+      "source": "DSC07846"
+    },
+    {
+      "id": "shared-board-peg-stamp-card",
+      "product": "shared",
+      "shows": "the Sanctuary board standing with the December sheet, a Polaroid stamp card clipped on with the peg",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/shared/shared-board-peg-stamp-card-2400.webp",
+        "small": "img/shared/shared-board-peg-stamp-card-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "hero",
+        "moment"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Sanctuary board with a Polaroid card clipped on",
+      "source": "DSC07778"
+    },
+    {
+      "id": "shared-peg-holds-stamp-card",
+      "product": "shared",
+      "shows": "the peg holds the December Polaroid card against the December Sanctuary sheet",
+      "ratio": "4:5",
+      "width": 1919,
+      "height": 2400,
+      "files": {
+        "large": "img/shared/shared-peg-holds-stamp-card-2400.webp",
+        "small": "img/shared/shared-peg-holds-stamp-card-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.45
+      ],
+      "uses": [
+        "detail",
+        "story"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Peg holding a Polaroid card on the Sanctuary board",
+      "source": "DSC07780"
+    },
+    {
+      "id": "shared-cards-and-board-sun",
+      "product": "shared",
+      "shows": "Polaroid cards scattered on a wooden table in evening sun beside the Sanctuary board and sheets",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/shared/shared-cards-and-board-sun-2400.webp",
+        "small": "img/shared/shared-cards-and-board-sun-1200.webp"
+      },
+      "focal": [
+        0.55,
+        0.5
+      ],
+      "uses": [
+        "hero",
+        "moment"
+      ],
+      "option": null,
+      "tone": "dark",
+      "alt": "Polaroid cards and the Sanctuary board in evening sun",
+      "source": "DSC07655"
+    },
+    {
+      "id": "shared-cards-and-board-sun-tall",
+      "product": "shared",
+      "shows": "Polaroid cards scattered on a table in evening sun",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/shared/shared-cards-and-board-sun-tall-2400.webp",
+        "small": "img/shared/shared-cards-and-board-sun-tall-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.45
+      ],
+      "uses": [
+        "moment"
+      ],
+      "option": null,
+      "tone": "dark",
+      "alt": "Polaroid cards on a table in evening sun",
+      "source": "DSC07655"
+    },
+    {
+      "id": "polaroid-card-in-phone-cover",
+      "product": "polaroid",
+      "shows": "a hand holds a phone with the June card behind its clear cover, more cards below",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/polaroid/polaroid-card-in-phone-cover-2400.webp",
+        "small": "img/polaroid/polaroid-card-in-phone-cover-1200.webp"
+      },
+      "focal": [
+        0.45,
+        0.45
+      ],
+      "uses": [
+        "hero",
+        "moment"
+      ],
+      "option": null,
+      "tone": "dark",
+      "alt": "The June Polaroid card behind a clear phone cover",
+      "source": "DSC07645"
+    },
+    {
+      "id": "polaroid-card-in-phone-cover-square",
+      "product": "polaroid",
+      "shows": "a phone with the June card behind its clear cover, held in a hand",
+      "ratio": "1:1",
+      "width": 2400,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-in-phone-cover-square-2400.webp",
+        "small": "img/polaroid/polaroid-card-in-phone-cover-square-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.45
+      ],
+      "uses": [
+        "hero",
+        "moment"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "The June Polaroid card behind a clear phone cover",
+      "source": "DSC07645"
+    },
+    {
+      "id": "polaroid-card-on-dark-phone",
+      "product": "polaroid",
+      "shows": "a hand holds a black phone with the January card on its back, cards and a small plant below",
+      "ratio": "1:1",
+      "width": 2400,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-on-dark-phone-2400.webp",
+        "small": "img/polaroid/polaroid-card-on-dark-phone-1200.webp"
+      },
+      "focal": [
+        0.55,
+        0.45
+      ],
+      "uses": [
+        "moment",
+        "option-swap"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "The January Polaroid card on the back of a black phone",
+      "source": "DSC07642"
+    },
+    {
+      "id": "polaroid-hands-fan-cards",
+      "product": "polaroid",
+      "shows": "two hands fan out all twelve stamp cards, December in front",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/polaroid/polaroid-hands-fan-cards-2400.webp",
+        "small": "img/polaroid/polaroid-hands-fan-cards-1200.webp"
+      },
+      "focal": [
+        0.4,
+        0.5
+      ],
+      "uses": [
+        "hero",
+        "moment"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Hands fanning the twelve Polaroid cards",
+      "source": "DSC07880"
+    },
+    {
+      "id": "polaroid-fan-close",
+      "product": "polaroid",
+      "shows": "close up of the fanned cards, coloured stamp borders stepping round",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-fan-close-2400.webp",
+        "small": "img/polaroid/polaroid-fan-close-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "hero",
+        "detail"
+      ],
+      "option": null,
+      "tone": "dark",
+      "alt": "Close up of the fanned Polaroid cards",
+      "source": "DSC07885"
+    },
+    {
+      "id": "polaroid-stack-in-hand",
+      "product": "polaroid",
+      "shows": "the stack of twelve cards held between fingers, coloured edges showing",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-stack-in-hand-2400.webp",
+        "small": "img/polaroid/polaroid-stack-in-hand-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "A stack of Polaroid cards held in the hand",
+      "source": "DSC07887"
+    },
+    {
+      "id": "polaroid-cards-scattered",
+      "product": "polaroid",
+      "shows": "the month cards scattered on a pale table",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/polaroid/polaroid-cards-scattered-2400.webp",
+        "small": "img/polaroid/polaroid-cards-scattered-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "moment",
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "Polaroid month cards scattered on a table",
+      "source": "DSC07893"
+    },
+    {
+      "id": "polaroid-card-beside-phone",
+      "product": "polaroid",
+      "shows": "a card lying next to a phone to show its size",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-beside-phone-2400.webp",
+        "small": "img/polaroid/polaroid-card-beside-phone-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "detail",
+        "story"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "A Polaroid card beside a phone for scale",
+      "source": "DSC07870"
+    },
+    {
+      "id": "polaroid-hands-hold-march",
+      "product": "polaroid",
+      "shows": "fingertips hold the March card, Hawa Mahal, flat on the table",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-hands-hold-march-2400.webp",
+        "small": "img/polaroid/polaroid-hands-hold-march-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "moment",
+        "option-swap"
+      ],
+      "option": {
+        "group": "month",
+        "value": "mar"
+      },
+      "tone": "dark",
+      "alt": "Hands holding the March Polaroid card",
+      "source": "DSC07867"
+    },
+    {
+      "id": "polaroid-card-jan",
+      "product": "polaroid",
+      "shows": "the January stamp card flat on a pale surface: Delhi, India Gate",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-jan-2400.webp",
+        "small": "img/polaroid/polaroid-card-jan-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "jan"
+      },
+      "tone": "light",
+      "alt": "Polaroid January card, India Gate",
+      "source": "DSC07865"
+    },
+    {
+      "id": "polaroid-card-feb",
+      "product": "polaroid",
+      "shows": "the February stamp card flat on a pale surface: Agra, Taj Mahal",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-feb-2400.webp",
+        "small": "img/polaroid/polaroid-card-feb-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "feb"
+      },
+      "tone": "light",
+      "alt": "Polaroid February card, Taj Mahal",
+      "source": "DSC07866"
+    },
+    {
+      "id": "polaroid-card-mar",
+      "product": "polaroid",
+      "shows": "the March stamp card flat on a pale surface: Jaipur, Hawa Mahal",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-mar-2400.webp",
+        "small": "img/polaroid/polaroid-card-mar-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "mar"
+      },
+      "tone": "light",
+      "alt": "Polaroid March card, Hawa Mahal",
+      "source": "DSC07868"
+    },
+    {
+      "id": "polaroid-card-apr",
+      "product": "polaroid",
+      "shows": "the April stamp card flat on a pale surface: Amritsar, Harmandir Sahib",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-apr-2400.webp",
+        "small": "img/polaroid/polaroid-card-apr-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "apr"
+      },
+      "tone": "light",
+      "alt": "Polaroid April card, Harmandir Sahib",
+      "source": "DSC07869"
+    },
+    {
+      "id": "polaroid-card-may",
+      "product": "polaroid",
+      "shows": "the May stamp card flat on a pale surface: Hyderabad, Charminar",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-may-2400.webp",
+        "small": "img/polaroid/polaroid-card-may-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "may"
+      },
+      "tone": "light",
+      "alt": "Polaroid May card, Charminar",
+      "source": "DSC07871"
+    },
+    {
+      "id": "polaroid-card-jun",
+      "product": "polaroid",
+      "shows": "the June stamp card flat on a pale surface: Mumbai, Gateway of India",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-jun-2400.webp",
+        "small": "img/polaroid/polaroid-card-jun-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "jun"
+      },
+      "tone": "light",
+      "alt": "Polaroid June card, Gateway of India",
+      "source": "DSC07872"
+    },
+    {
+      "id": "polaroid-card-jul",
+      "product": "polaroid",
+      "shows": "the July stamp card flat on a pale surface: Kochi, Chinese fishing nets",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-jul-2400.webp",
+        "small": "img/polaroid/polaroid-card-jul-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "jul"
+      },
+      "tone": "light",
+      "alt": "Polaroid July card, Chinese fishing nets",
+      "source": "DSC07873"
+    },
+    {
+      "id": "polaroid-card-aug",
+      "product": "polaroid",
+      "shows": "the August stamp card flat on a pale surface: Madurai, Meenakshi Temple",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-aug-2400.webp",
+        "small": "img/polaroid/polaroid-card-aug-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "aug"
+      },
+      "tone": "light",
+      "alt": "Polaroid August card, Meenakshi Temple",
+      "source": "DSC07874"
+    },
+    {
+      "id": "polaroid-card-sep",
+      "product": "polaroid",
+      "shows": "the September stamp card flat on a pale surface: Mysuru, Mysore Palace",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-sep-2400.webp",
+        "small": "img/polaroid/polaroid-card-sep-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "sep"
+      },
+      "tone": "light",
+      "alt": "Polaroid September card, Mysore Palace",
+      "source": "DSC07875"
+    },
+    {
+      "id": "polaroid-card-oct",
+      "product": "polaroid",
+      "shows": "the October stamp card flat on a pale surface: Kolkata, Howrah Bridge",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-oct-2400.webp",
+        "small": "img/polaroid/polaroid-card-oct-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "oct"
+      },
+      "tone": "light",
+      "alt": "Polaroid October card, Howrah Bridge",
+      "source": "DSC07877"
+    },
+    {
+      "id": "polaroid-card-nov",
+      "product": "polaroid",
+      "shows": "the November stamp card flat on a pale surface: Varanasi, Dashashwamedh Ghat",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-nov-2400.webp",
+        "small": "img/polaroid/polaroid-card-nov-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "nov"
+      },
+      "tone": "light",
+      "alt": "Polaroid November card, Dashashwamedh Ghat",
+      "source": "DSC07879"
+    },
+    {
+      "id": "polaroid-card-dec",
+      "product": "polaroid",
+      "shows": "the December stamp card flat on a pale surface: Goa, Basilica of Bom Jesus",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/polaroid/polaroid-card-dec-2400.webp",
+        "small": "img/polaroid/polaroid-card-dec-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.5
+      ],
+      "uses": [
+        "option-swap",
+        "detail"
+      ],
+      "option": {
+        "group": "month",
+        "value": "dec"
+      },
+      "tone": "light",
+      "alt": "Polaroid December card, Basilica of Bom Jesus",
+      "source": "DSC07863"
+    },
+    {
+      "id": "distinctive-august-page",
+      "product": "distinctive",
+      "shows": "the August page of the wall planner held up: bookshop photo above, wide date grid below",
+      "ratio": "16:9",
+      "width": 2400,
+      "height": 1350,
+      "files": {
+        "large": "img/distinctive/distinctive-august-page-2400.webp",
+        "small": "img/distinctive/distinctive-august-page-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.4
+      ],
+      "uses": [
+        "hero",
+        "detail"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "August page of the Distinctive wall planner",
+      "source": "DSC07805"
+    },
+    {
+      "id": "distinctive-august-page-tall",
+      "product": "distinctive",
+      "shows": "the August page of the wall planner, bookshop photo and month title",
+      "ratio": "4:5",
+      "width": 1920,
+      "height": 2400,
+      "files": {
+        "large": "img/distinctive/distinctive-august-page-tall-2400.webp",
+        "small": "img/distinctive/distinctive-august-page-tall-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.45
+      ],
+      "uses": [
+        "hero"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "August page of the Distinctive wall planner",
+      "source": "DSC07805"
+    },
+    {
+      "id": "distinctive-hands-turn-page",
+      "product": "distinctive",
+      "shows": "hands turn the large page over, photo side and grid side both in view",
+      "ratio": "3:2",
+      "width": 2400,
+      "height": 1600,
+      "files": {
+        "large": "img/distinctive/distinctive-hands-turn-page-2400.webp",
+        "small": "img/distinctive/distinctive-hands-turn-page-1200.webp"
+      },
+      "focal": [
+        0.4,
+        0.5
+      ],
+      "uses": [
+        "moment"
+      ],
+      "option": null,
+      "tone": "dark",
+      "alt": "Hands turning a page of the Distinctive planner",
+      "source": "DSC07802"
+    },
+    {
+      "id": "distinctive-september-in-hands",
+      "product": "distinctive",
+      "shows": "the September page lifted in two hands",
+      "ratio": "4:5",
+      "width": 1919,
+      "height": 2400,
+      "files": {
+        "large": "img/distinctive/distinctive-september-in-hands-2400.webp",
+        "small": "img/distinctive/distinctive-september-in-hands-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.4
+      ],
+      "uses": [
+        "moment",
+        "option-swap"
+      ],
+      "option": {
+        "group": "month",
+        "value": "sep"
+      },
+      "tone": "light",
+      "alt": "September page of the Distinctive planner held in hand",
+      "source": "DSC07804"
+    },
+    {
+      "id": "distinctive-page-curl",
+      "product": "distinctive",
+      "shows": "a hand lifts the corner of a page, venue interior behind",
+      "ratio": "4:5",
+      "width": 1919,
+      "height": 2400,
+      "files": {
+        "large": "img/distinctive/distinctive-page-curl-2400.webp",
+        "small": "img/distinctive/distinctive-page-curl-1200.webp"
+      },
+      "focal": [
+        0.5,
+        0.4
+      ],
+      "uses": [
+        "moment"
+      ],
+      "option": null,
+      "tone": "light",
+      "alt": "A hand lifting a page of the Distinctive planner",
+      "source": "DSC07798"
+    },
+    {
+      "id": "distinctive-august-angle",
+      "product": "distinctive",
+      "shows": "the August page seen at an angle: bookshop photo folding over the white date grid",
+      "ratio": "4:5",
+      "width": 1919,
+      "height": 2400,
+      "files": {
+        "large": "img/distinctive/distinctive-august-angle-2400.webp",
+        "small": "img/distinctive/distinctive-august-angle-1200.webp"
+      },
+      "focal": [
+        0.4,
+        0.5
+      ],
+      "uses": [
+        "detail",
+        "option-swap"
+      ],
+      "option": {
+        "group": "month",
+        "value": "aug"
+      },
+      "tone": "dark",
+      "alt": "August page of the Distinctive planner at an angle",
+      "source": "DSC07806"
+    }
+  ]
+}

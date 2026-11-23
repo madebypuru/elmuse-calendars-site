@@ -1,0 +1,82 @@
+/* The merged page: six full-height sections, one shared control bar, a quiet section index. */
+@font-face {
+  font-family: "Regie";
+  src: url("assets/fonts/Regie-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --forest: #2b3d21;
+  --cream: #f7f3ed;
+  --ink: #141414;
+  --lime: #c7ef4e;
+  --font-display: "Regie", "Instrument Serif", "Didot", Georgia, serif;
+  --font-text: "Figtree", "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
+}
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: #1d1b1a; overflow-x: clip; }
+main { display: block; }
+
+/* every section is its own stacking context, so nothing inside can climb over the bar */
+main > section { isolation: isolate; }
+/* off screen: no running animations */
+main > section.is-far,
+main > section.is-far *,
+main > section.is-far *::before,
+main > section.is-far *::after { animation-play-state: paused !important; }
+
+/* ---------- the shared bar: Sanctuary's glass pills, fixed to the top of the page ---------- */
+#sanc-bar.sanc__bar--page {
+  position: fixed;
+  z-index: 100;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  --glass: rgba(18, 16, 22, .6);
+  --glass-line: rgba(255, 255, 255, .2);
+  color: #f7f3ed;
+  font-family: var(--font-text);
+  box-sizing: border-box;
+}
+#sanc-bar.sanc__bar--page *, #sanc-bar.sanc__bar--page *::before, #sanc-bar.sanc__bar--page *::after { box-sizing: border-box; }
+@media (max-width: 899px) {
+  #sanc-bar.sanc__bar--page { top: 12px; gap: 6px; }
+  #sanc-bar .sanc__pill { padding: 0 10px; gap: 6px; }
+  #sanc-bar .sanc__slider { width: 104px; }
+  #sanc-bar .sanc__pill--vol .sanc__slider { width: 72px; }
+  #sanc-bar .sanc__pill-ico { display: none; }
+}
+
+/* ---------- section index: desktop only ---------- */
+.site-index {
+  position: fixed;
+  z-index: 90;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+}
+@media (min-width: 900px) { .site-index { display: flex; } }
+.site-index a {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+.site-index i {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(247, 243, 237, .55);
+  box-shadow: 0 0 0 1px rgba(20, 18, 16, .45);
+  transition: transform .25s, background-color .25s;
+}
+.site-index a:hover i { background: #f7f3ed; }
+.site-index a[aria-current="true"] i { background: #f7f3ed; transform: scale(1.5); }
+.site-index a:focus-visible { outline: 2px solid #f7f3ed; outline-offset: 0; box-shadow: 0 0 0 4px rgba(20, 18, 16, .6); }

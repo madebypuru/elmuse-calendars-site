@@ -1,0 +1,4 @@
+/* Polaroid product page. Layout only; every part is shared (components.css). */
+
+/* The city cards are 454 px files: never shown wider than that (the 2-up cell is 460 at 1920). */
+.sample img { width: auto; max-width: 100%; }

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Style guide · elmuse 2027 calendars</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/styleguide.css">
+</head>
+<body data-page="polaroid">
+  <a class="skip-link" href="#main">Skip to the guide</a>
+  <header data-site-header></header>
+
+  <main id="main" class="container">
+    <p class="sg-label">Style guide. Every part below copies a measured sigmaphoto.com part; SPEC.md names each one. The header above shows the product sub-bar because this page borrows the Polaroid product form.</p>
+
+    <!-- Type roles -->
+    <section class="section" aria-labelledby="sg-type">
+      <h2 class="section-title" id="sg-type">Type</h2>
+      <div class="sg-rows">
+        <div class="sg-row"><span class="sg-label">d1-home · Regie 88/83.8 −3px caps</span><p class="d1-home">A year you can hold</p></div>
+        <div class="sg-row"><span class="sg-label">pdp-title · Regie 88/83.6 −1.32px</span><h3 class="pdp-title sg-flush"><span>2027</span><span>Polaroid</span></h3></div>
+        <div class="sg-row"><span class="sg-label">d2 · Regie 48/52.8 caps (statement, story headline)</span><p class="d2 caps">Twelve cities, one a month</p></div>
+        <div class="sg-row"><span class="sg-label">title · Newsreader 16/17.6 caps (section, card, h4)</span><p class="title">Where will your year live</p></div>
+        <div class="sg-row"><span class="sg-label">text · Newsreader 16/20 (names, prices, body)</span><p class="text">Twelve stamp cards, one Indian city a month, carried behind your phone. ₹1,200</p></div>
+        <div class="sg-row"><span class="sg-label">ui-caps · Proxima Nova 13/16.25 caps (every label)</span><p class="ui-caps">Calendars · Stories · Cart (2)</p></div>
+        <div class="sg-row"><span class="sg-label">ui · Proxima Nova 13/16.25 (spec cells, helper, bullets)</span><p class="ui">Textured 380 gsm card, designed like postage stamps</p></div>
+        <div class="sg-row"><span class="sg-label">muted · ink at 70%</span><p class="ui muted">Ships from Jaipur from 10 December</p></div>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="section" aria-labelledby="sg-controls">
+      <h2 class="section-title" id="sg-controls">Controls</h2>
+      <div class="grid">
+        <div class="c-4 sg-stack">
+          <span class="sg-label">btn (primary) · btn--outline · link</span>
+          <button type="button" class="btn btn--block">Add to cart</button>
+          <a class="btn btn--outline" href="calendars.html">View all calendars</a>
+          <a class="link" href="stories.html">Read more</a>
+          <a class="link link--action" href="teams.html">Ordering for a team <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="img/icons/chevron-right.svg#i"></use></svg></a>
+        </div>
+        <div class="c-4 sg-stack">
+          <span class="sg-label">option (text radios, two columns) · stepper · check</span>
+          <fieldset class="option">
+            <legend class="option__label">Colour</legend>
+            <div class="radios">
+              <label class="radio"><input type="radio" name="sg-colour" checked><span class="radio__ring" aria-hidden="true"></span><span>Forest green</span></label>
+              <label class="radio"><input type="radio" name="sg-colour"><span class="radio__ring" aria-hidden="true"></span><span>Ivory</span></label>
+              <label class="radio"><input type="radio" name="sg-colour" disabled><span class="radio__ring" aria-hidden="true"></span><span>Sold out</span></label>
+            </div>
+            <p class="helper">Choose a colour to see it.</p>
+          </fieldset>
+          <div class="stepper" data-stepper>
+            <button type="button" class="stepper__btn" data-step="-1" aria-label="One fewer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="img/icons/minus.svg#i"></use></svg></button>
+            <input class="stepper__input" type="number" inputmode="numeric" min="1" max="99" value="1" aria-label="How many">
+            <button type="button" class="stepper__btn" data-step="1" aria-label="One more"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="img/icons/plus.svg#i"></use></svg></button>
+          </div>
+          <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"></span><span>Write to me once a month</span></label>
+        </div>
+        <div class="c-4 sg-stack">
+          <span class="sg-label">field · select · notice · bullets</span>
+          <div class="field"><label class="field__label" for="sg-email">Email address</label><input class="field__input" id="sg-email" type="email" placeholder="you@example.com"></div>
+          <div class="field"><label class="field__label" for="sg-select">How many</label><select class="field__input" id="sg-select"><option>10 to 50</option><option>50 to 200</option></select></div>
+          <div class="notice"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="img/icons/alert.svg#i"></use></svg><p>Prices are placeholders until the studio confirms them.</p></div>
+          <ul class="bullets"><li>Twelve cards, one city each month</li><li data-delivery></li><li>Guest checkout; delivery cost shown before you pay</li></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Home blocks: intro, image tiles, product tiles, cards, banner, categories, letter -->
+  <div class="container">
+    <section class="section intro" aria-labelledby="sg-intro">
+      <h2 class="d1-home" id="sg-intro">A year you can hold</h2>
+      <div class="prose"><p>Three paper calendars for 2027, for your desk, your pocket and your wall. Printed, cut and packed in our studio in Jaipur.</p></div>
+      <a class="link" href="calendars.html">Explore the calendars</a>
+    </section>
+
+    <section class="section" aria-labelledby="sg-new">
+      <h2 class="section-title" id="sg-new">New for 2027</h2>
+      <div class="grid">
+        <a class="c-6 image-tile" href="sanctuary.html" style="--focal: 50% 40%"><img src="img/sanctuary/sanctuary-board-december-1200.webp" alt=""><span class="image-tile__text"><span class="image-tile__title">Sanctuary<br>Desk and wall calendar</span><span class="link">Explore more</span></span></a>
+        <a class="c-6 image-tile" href="polaroid.html"><img src="img/polaroid/polaroid-fan-close-1200.webp" alt=""><span class="image-tile__text"><span class="image-tile__title">Polaroid<br>Twelve stamp cards</span><span class="link">Explore more</span></span></a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sg-featured">
+      <h2 class="section-title" id="sg-featured">The calendars</h2>
+      <div class="grid">
+        <a class="c-4 product-tile" href="sanctuary.html"><div class="product-tile__img product-tile__img--photo"><img src="img/sanctuary/sanctuary-board-march-1200.webp" alt=""></div><p class="product-tile__name">Sanctuary</p><p class="product-tile__name">Desk and wall calendar</p><p class="price-row"><span data-price="sanctuary"></span></p></a>
+        <a class="c-4 product-tile" href="polaroid.html"><div class="product-tile__img"><span class="badge">New</span><img src="../assets/polaroid/03-jaipur.png" alt=""></div><p class="product-tile__name">Polaroid</p><p class="product-tile__name">Twelve stamp cards</p><p class="price-row"><span data-price="polaroid"></span></p></a>
+        <a class="c-4 product-tile" href="distinctive.html"><div class="product-tile__img"><img src="../assets/distinctive/green-horizontal.webp" alt=""></div><p class="product-tile__name">Distinctive</p><p class="product-tile__name">3 × 2 ft wall planner</p><p class="price-row"><span data-price="distinctive"></span></p></a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sg-cards">
+      <h2 class="section-title" id="sg-cards">In use</h2>
+      <div class="grid">
+        <a class="c-4 card" href="stories.html"><div class="card__img"><img src="img/sanctuary/sanctuary-hand-sets-sheet-1200.webp" alt=""></div><p class="card__title">January goes up</p></a>
+        <a class="c-4 card" href="stories.html"><div class="card__img"><img src="img/polaroid/polaroid-hands-hold-march-1200.webp" alt=""></div><p class="card__title">March in Jaipur</p></a>
+        <a class="c-4 card" href="stories.html"><div class="card__img"><img src="img/shared/shared-peg-holds-stamp-card-1200.webp" alt=""></div><p class="card__title">The peg and the card</p></a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sg-banner">
+      <div class="banner"><img src="img/sanctuary/sanctuary-hand-on-sheet-2400.webp" alt=""><div class="banner__text"><h2 class="banner__title" id="sg-banner">A letter from the studio</h2><p class="banner__copy">A phone tells you what comes next. A page shows you where you have been.</p><a class="link" href="stories.html">Read more</a></div></div>
+    </section>
+
+    <section class="section" aria-labelledby="sg-cat">
+      <h2 class="section-title" id="sg-cat">Where will your year live</h2>
+      <div class="grid">
+        <div class="c-4 category"><div class="category__img"><img src="img/sanctuary/sanctuary-board-march-1200.webp" alt=""></div><div class="category__text"><h3 class="category__title">On your desk</h3><p>A birch board with a month to tear off, keep and post.</p><a class="link" href="sanctuary.html">Read more</a></div></div>
+        <div class="c-4 category"><div class="category__img"><img src="img/polaroid/polaroid-card-in-phone-cover-square-1200.webp" alt=""></div><div class="category__text"><h3 class="category__title">In your pocket</h3><p>A city card a month, behind your phone cover.</p><a class="link" href="polaroid.html">Read more</a></div></div>
+        <div class="c-4 category"><div class="category__img category__img--file"><img src="../assets/distinctive/ivory-horizontal.webp" alt=""></div><div class="category__text"><h3 class="category__title">On your wall</h3><p>The whole year on one 3 × 2 ft sheet.</p><a class="link" href="distinctive.html">Read more</a></div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sg-letter">
+      <div class="letter">
+        <form class="letter__form" novalidate>
+          <h2 class="letter__title" id="sg-letter">The studio letter</h2>
+          <p class="letter__lede">One letter a month from Jaipur, and word when the 2028 calendars open.</p>
+          <div class="field"><label class="field__label" for="sg-letter-email">Email address *</label><input class="field__input" id="sg-letter-email" type="email" required placeholder="Enter your email"></div>
+          <label class="check"><input type="checkbox" required><span class="check__box" aria-hidden="true"></span><span>I agree to receive the letter *</span></label>
+          <button type="submit" class="btn btn--block">Subscribe</button>
+        </form>
+        <div class="letter__panel"><img src="../assets/polaroid/03-jaipur.png" alt=""></div>
+      </div>
+    </section>
+
+    <!-- Listing -->
+    <section aria-labelledby="sg-list">
+      <div class="list-head"><h2 class="list-head__title" id="sg-list">Calendars</h2><p class="list-head__intro">Three paper calendars for 2027. Made in Jaipur.</p></div>
+      <div class="list-banner"><img src="img/sanctuary/sanctuary-hands-fan-sheets-2400.webp" alt=""></div>
+      <div class="toolbar"><span>2027 calendars</span><span class="muted">3 calendars</span></div>
+      <div class="list-grid">
+        <a class="list-cell" href="sanctuary.html"><div class="list-cell__img list-cell__img--photo"><img src="img/sanctuary/sanctuary-board-march-1200.webp" alt=""></div><p>SANCTUARY</p><p>Desk and wall calendar</p><p data-price="sanctuary"></p></a>
+        <a class="list-cell" href="polaroid.html"><div class="list-cell__img"><img src="../assets/polaroid/03-jaipur.png" alt=""></div><p>POLAROID</p><p>Twelve stamp cards</p><p data-price="polaroid"></p></a>
+        <a class="list-cell list-edit" href="stories.html"><img src="img/shared/shared-board-peg-stamp-card-1200.webp" alt=""><span class="list-edit__text"><span class="list-edit__title">The two together</span><br><span class="list-edit__link">Read more</span></span></a>
+        <a class="list-cell" href="distinctive.html"><span class="swatches" aria-label="Forest green or ivory"><span style="--swatch: #2a3d28"></span><span style="--swatch: #f3ece0"></span></span><div class="list-cell__img"><img src="../assets/distinctive/green-horizontal.webp" alt=""></div><p>DISTINCTIVE</p><p>3 × 2 ft wall planner</p><p data-price="distinctive"></p></a>
+      </div>
+    </section>
+
+    <!-- Product page -->
+    <section aria-labelledby="sg-pdp" style="margin-top: 160px">
+      <h2 class="pdp-title" id="sg-pdp"><span>2027</span><span>Polaroid</span></h2>
+      <div class="pdp-hero"><picture><source media="(max-width: 900px)" srcset="img/polaroid/polaroid-fan-close-1200.webp"><img src="img/polaroid/polaroid-hands-fan-cards-2400.webp" alt="" style="--focal: 50% 60%"></picture></div>
+      <div class="buy" id="buy-now" data-product-form="polaroid">
+        <div class="gallery" data-gallery>
+          <div class="gallery__track">
+            <div class="gallery__slide"><img data-product-image src="img/polaroid/polaroid-card-in-phone-cover-square-1200.webp" alt="A phone with the June card behind its clear cover"></div>
+            <div class="gallery__slide"><img src="img/polaroid/polaroid-stack-in-hand-1200.webp" alt="The twelve cards held between fingers"></div>
+            <div class="gallery__slide"><img src="img/polaroid/polaroid-card-beside-phone-1200.webp" alt="A card beside a phone to show its size"></div>
+            <div class="gallery__slide gallery__slide--file"><img src="../assets/polaroid/06-mumbai.png" alt="The June card, Mumbai"></div>
+          </div>
+        </div>
+        <div class="buybox">
+          <div class="buybox__head"><h3 class="buybox__name"><span>2027 calendar</span><span>Polaroid</span></h3><p data-price></p></div>
+          <p class="buybox__meta">Twelve stamp cards, 60 × 85 mm</p>
+          <div class="buybox__options" data-choices="polaroid"></div>
+          <div data-stepper class="stepper">
+            <button type="button" class="stepper__btn" data-step="-1" aria-label="One fewer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="img/icons/minus.svg#i"></use></svg></button>
+            <input class="stepper__input" type="number" inputmode="numeric" min="1" max="99" value="1" aria-label="How many">
+            <button type="button" class="stepper__btn" data-step="1" aria-label="One more"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="img/icons/plus.svg#i"></use></svg></button>
+          </div>
+          <button type="button" class="btn btn--block buybox__add" data-add-to-cart="polaroid">Add to cart</button>
+          <ul class="bullets"><li>One Indian city and its monument for each month</li><li data-delivery></li><li>Guest checkout; delivery cost shown before you pay</li></ul>
+          <a class="link link--action" href="teams.html">Ordering for a team <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="img/icons/chevron-right.svg#i"></use></svg></a>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="split__copy"><h4>How it travels with you</h4><p>Take off your clear cover, lay the month's card on the back of your phone, and press the cover on again.</p><p>A new month, a new city. Keep last month's in a drawer, or pin it to the wall.</p></div>
+        <div class="split__img"><img src="img/polaroid/polaroid-card-in-phone-cover-2400.webp" alt=""></div>
+      </div>
+
+      <div class="band" id="details">
+        <div class="tabs" role="tablist" aria-orientation="vertical" aria-label="Details" data-tabs>
+          <button type="button" class="tab" role="tab" data-tab="sg-spec">Specifications</button>
+          <button type="button" class="tab" role="tab" data-tab="sg-use">How it travels</button>
+          <button type="button" class="tab" role="tab" data-tab="sg-cities">Twelve cities</button>
+        </div>
+        <div>
+          <div class="panel" role="tabpanel" id="sg-spec">
+            <div class="spec-row"><span>Size</span><span>60 × 85 mm, sized to sit behind a clear phone cover</span></div>
+            <div class="spec-row"><span>Paper</span><span>Textured 380 gsm card, designed like postage stamps</span></div>
+            <div class="spec-row"><span>The year</span><span>Twelve cards, one city and its monument for each month of 2027</span></div>
+            <div class="spec-row"><span>In the box</span><span>Twelve stamp cards. With the MagSafe choice, one holder too.</span></div>
+          </div>
+          <div class="panel" role="tabpanel" id="sg-use">
+            <div class="feature-row"><h3>Slip it in</h3><p>Take off your clear cover, lay the card on the back of your phone, and press the cover on again.</p></div>
+            <div class="feature-row"><h3>Swap it on the 1st</h3><p>A new month, a new city. Keep last month's in a drawer, or pin it to the wall.</p></div>
+          </div>
+          <div class="panel" role="tabpanel" id="sg-cities">
+            <div class="samples">
+              <figure class="sample"><img src="img/polaroid/polaroid-card-jan-1200.webp" alt="The January card"><div class="spec-row"><span>January</span><span>Delhi, India Gate</span></div></figure>
+              <figure class="sample"><img src="img/polaroid/polaroid-card-feb-1200.webp" alt="The February card"><div class="spec-row"><span>February</span><span>Agra, Taj Mahal</span></div></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stories">
+        <a class="story-card" href="stories.html"><div class="story-card__img"><img src="img/polaroid/polaroid-hands-hold-march-1200.webp" alt=""></div><p class="story-card__title"><span>Carried in Mumbai</span><span>The first of the month</span></p><p class="story-card__excerpt">Sample: I didn't think I'd look forward to the 1st. Now I take the old card out before I've had my tea.</p><span class="link">Read more</span></a>
+        <a class="story-card" href="stories.html"><div class="story-card__img"><img src="img/polaroid/polaroid-fan-close-1200.webp" alt=""></div><p class="story-card__title"><span>Carried in Kochi</span><span>Ten minutes on Kochi</span></p><p class="story-card__excerpt">Sample: People ask about the card on my phone. Then we talk about Kochi for ten minutes.</p><span class="link">Read more</span></a>
+      </div>
+
+      <section class="related" data-more="polaroid" aria-label="The other calendars"></section>
+    </section>
+  </div>
+
+  <!-- Story blocks -->
+  <article class="container" aria-labelledby="sg-story">
+    <header class="story-head">
+      <p class="kicker">Sanctuary, The studio</p>
+      <h2 id="sg-story">How a board is made in Jaipur</h2>
+      <p>Sanctuary</p><p>by the elmuse studio</p>
+    </header>
+    <figure class="story-fig story-fig--1408"><img src="img/sanctuary/sanctuary-sheets-golden-hour-2400.webp" alt=""></figure>
+    <div class="story-body"><p>Sample text. Birch ply cut by laser, the edges charred dark. A ledge plate slots through the board to make the shelf, and the elmuse name is engraved on the strip below it.</p><p>Each sheet is printed on 320 gsm card. The picture tears off along a perforation; its back is a postcard.</p></div>
+    <figure class="story-fig story-fig--688"><img src="img/sanctuary/sanctuary-side-stand-1200.webp" alt=""></figure>
+    <div class="story-pair"><img src="img/sanctuary/sanctuary-back-hanging-plate-1200.webp" alt=""><img src="img/sanctuary/sanctuary-peg-todo-note-1200.webp" alt=""></div>
+    <div class="story-about"><p class="kicker">About</p><p class="kicker">The elmuse studio</p><p class="story-about__bio">A small studio in Jaipur. These three are our calendars for 2027.</p></div>
+  </article>
+
+  <footer data-site-footer></footer>
+  <script src="js/config.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Sanctuary Calendar · elmuse 2027</title>
+  <meta name="description" content="The Sanctuary Calendar by elmuse: twelve loose sheets on a birch board, for the year you plan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Instrument+Serif&display=swap">
+  <link rel="preload" as="font" type="font/otf" href="assets/fonts/Regie-Regular.otf" crossorigin>
+  <link rel="preload" as="image" href="assets/sanctuary/web/page-01.jpg">
+  <link rel="stylesheet" href="sanctuary.css">
+</head>
+<body>
+<main>
+  <section id="sanctuary" class="sanc" aria-labelledby="sanc-title" data-ink="dark">
+
+    <!-- the room: one desk at four times of day, everything inside is placed in image pixels -->
+    <div class="sanc__scene">
+      <div class="sanc__canvas" id="sanc-canvas">
+        <img class="sanc__bg" data-k="0" alt="" data-src="assets/scene/desk/morning.jpg">
+        <img class="sanc__bg" data-k="1" alt="" data-src="assets/scene/desk/afternoon.jpg">
+        <img class="sanc__bg" data-k="2" alt="" data-src="assets/scene/desk/dusk.jpg">
+        <img class="sanc__bg" data-k="3" alt="" data-src="assets/scene/desk/night.jpg">
+
+        <ol class="sanc__wall" id="sanc-slots" aria-label="Postcards kept on the wall"></ol>
+
+        <div class="sanc__cast" aria-hidden="true"></div>
+        <div class="sanc__contact" aria-hidden="true"></div>
+
+        <div class="sanc__object" id="sanc-object">
+          <div class="sanc__board" aria-hidden="true"></div>
+          <div class="sanc__stack" aria-hidden="true"><i></i><i></i></div>
+          <div class="sanc__sheet-wrap">
+            <div class="sanc__sheet" id="sanc-sheet" role="img" aria-label="">
+              <div class="sanc__strip" id="sanc-strip">
+                <div class="sanc__face sanc__face--front" data-part="strip-front"></div>
+                <div class="sanc__face sanc__face--back" data-part="strip-back"></div>
+              </div>
+              <div class="sanc__body" id="sanc-body">
+                <div class="sanc__face sanc__face--front" data-part="body-front"></div>
+                <div class="sanc__face sanc__face--back" data-part="body-back"></div>
+              </div>
+              <div class="sanc__shade" aria-hidden="true"></div>
+            </div>
+            <button type="button" class="sanc__qr" id="sanc-qr" aria-label="Scan the QR code" hidden></button>
+          </div>
+
+          <div class="sanc__postcard" id="sanc-postcard" hidden>
+            <div class="sanc__postcard-in">
+              <div class="sanc__face sanc__face--front" data-part="card-front"></div>
+              <div class="sanc__face sanc__face--back" data-part="card-back"></div>
+            </div>
+          </div>
+
+          <div class="sanc__base" aria-hidden="true">
+            <div class="sanc__ledge"></div>
+            <div class="sanc__band"><span class="sanc__engrave" id="sanc-engrave">elmuse</span></div>
+          </div>
+          <i class="sanc__light sanc__light--dir" aria-hidden="true"></i>
+          <i class="sanc__light sanc__light--glow" aria-hidden="true"></i>
+          <i class="sanc__light sanc__light--blind" aria-hidden="true"><b></b></i>
+          <div class="sanc__peg" aria-hidden="true"><i></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sanc__copy" id="sanc-copy">
+      <p class="sanc__theme">The year you plan</p>
+      <h2 id="sanc-title" class="sanc__title">The Sanctuary Calendar</h2>
+      <p class="sanc__lede">Twelve loose sheets on a birch board, for people who plan their month with intent. Each one turns over into a journal page, and its picture tears off as a postcard to send or keep.</p>
+    </div>
+
+    <div class="sanc__bar" id="sanc-bar">
+      <div class="sanc__pill sanc__pill--time">
+        <span class="sanc__pill-ico" aria-hidden="true">
+          <svg viewBox="0 0 16 16" width="14" height="14"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </span>
+        <div class="sanc__slider" id="sanc-time" role="slider" tabindex="0" aria-label="Time of day"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="33" aria-valuetext="Afternoon">
+          <span class="sanc__ticks" aria-hidden="true"></span>
+          <span class="sanc__thumb" aria-hidden="true"></span>
+        </div>
+        <span class="sanc__pill-ico" aria-hidden="true">
+          <svg viewBox="0 0 16 16" width="14" height="14"><path d="M12.6 10.3A5.2 5.2 0 0 1 5.7 3.4a5.2 5.2 0 1 0 6.9 6.9z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+
+      <button type="button" class="sanc__orb" id="sanc-orb" aria-label="Go to night">
+        <svg class="sun" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="10" cy="10" r="4" fill="currentColor"/><path d="M10 1.8v2M10 16.2v2M1.8 10h2M16.2 10h2M4.2 4.2l1.4 1.4M14.4 14.4l1.4 1.4M4.2 15.8l1.4-1.4M14.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <svg class="moon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M15.6 12.7A6.4 6.4 0 0 1 7.3 4.4a6.4 6.4 0 1 0 8.3 8.3z" fill="currentColor"/></svg>
+      </button>
+
+      <div class="sanc__pill sanc__pill--vol">
+        <button type="button" class="sanc__mute" id="sanc-mute" aria-pressed="true" aria-label="Sound off">
+          <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M2.5 6h2.3l3.2-2.6v9.2L4.8 10H2.5z" fill="currentColor"/><path class="on" d="M10.6 5.8c.7.6 1.1 1.3 1.1 2.2s-.4 1.6-1.1 2.2M12.3 4.2c1.2 1 1.9 2.3 1.9 3.8s-.7 2.8-1.9 3.8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path class="off" d="m10.8 6.2 3.4 3.6m0-3.6-3.4 3.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="sanc__slider" id="sanc-vol" role="slider" tabindex="0" aria-label="Volume"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Muted">
+          <span class="sanc__ticks" aria-hidden="true"></span>
+          <span class="sanc__thumb" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sanc__controls" id="sanc-controls">
+      <div class="sanc__nav">
+        <button type="button" class="sanc__btn sanc__btn--icon" id="sanc-prev" aria-label="Previous month">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="sanc__month" id="sanc-month" aria-live="polite">January</p>
+        <button type="button" class="sanc__btn sanc__btn--icon" id="sanc-next" aria-label="Next month">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="m7.5 4 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="sanc__btn sanc__btn--icon" id="sanc-reset" aria-label="Take the postcards off the wall and put them back" hidden>
+          <svg viewBox="0 0 20 20" width="17" height="17" aria-hidden="true"><path d="M4.5 9.5a5.5 5.5 0 1 1 1.6 3.9M4.5 9.5V5.6M4.5 9.5h3.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="sanc__actions" id="sanc-actions">
+        <button type="button" class="sanc__btn" id="sanc-flip">Turn over</button>
+        <button type="button" class="sanc__btn" id="sanc-tear">Tear off postcard</button>
+        <button type="button" class="sanc__btn sanc__btn--icon" id="sanc-zoom" aria-label="Look closer">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m12.3 12.3 4.2 4.2M8.5 6.3v4.4M6.3 8.5h4.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="sanc__actions" id="sanc-card-actions" hidden>
+        <button type="button" class="sanc__btn" id="sanc-card-flip">Turn postcard</button>
+        <button type="button" class="sanc__btn sanc__btn--solid" id="sanc-card-keep">Pin to wall</button>
+        <button type="button" class="sanc__btn" id="sanc-card-back">Put back</button>
+      </div>
+      <p class="sanc__hint" id="sanc-hint"></p>
+    </div>
+
+    <dialog class="sanc__phone" id="sanc-phone" aria-labelledby="sanc-phone-title">
+      <div class="sanc__phone-screen">
+        <div class="sanc__phone-bar" aria-hidden="true"></div>
+        <div class="sanc__phone-head">
+          <p class="sanc__phone-kicker" id="sanc-phone-kicker">elmuse · January</p>
+          <button type="button" class="sanc__phone-close" id="sanc-phone-close" aria-label="Close">
+            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <h3 class="sanc__phone-title" id="sanc-phone-title">Open Skies</h3>
+        <p class="sanc__phone-unlock" id="sanc-phone-unlock"></p>
+        <ul class="sanc__phone-list" id="sanc-phone-list"></ul>
+        <p class="sanc__phone-note">Ordering for your team? This page can carry your company’s own messages.</p>
+      </div>
+    </dialog>
+
+    <dialog class="sanc__zoom" id="sanc-zoomer" aria-labelledby="sanc-zoom-title">
+      <div class="sanc__zoom-head">
+        <p class="sanc__zoom-title" id="sanc-zoom-title">January</p>
+        <button type="button" class="sanc__btn sanc__btn--icon" id="sanc-zoom-close" aria-label="Close">
+          <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="sanc__zoom-scroll" tabindex="0" aria-label="Sheet, full size">
+        <img id="sanc-zoom-img" alt="" width="1608" height="2200" decoding="async">
+      </div>
+    </dialog>
+
+    <svg class="sanc__defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <filter id="sanc-relight" color-interpolation-filters="sRGB">
+        <feColorMatrix id="sanc-relight-m" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+      </filter>
+      <filter id="sanc-relight-wall" color-interpolation-filters="sRGB">
+        <feColorMatrix id="sanc-relight-w" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+      </filter>
+    </svg>
+  </section>
+</main>
+<script src="sanctuary.js"></script>
+</body>
+</html>

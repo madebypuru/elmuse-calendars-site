@@ -1,0 +1,121 @@
+/* elmuse 2027 calendars, v2 design tokens. Shared file: page builders read, never edit.
+   Every value is sigmaphoto.com's, measured 23 Nov 2026 (calendar-refs/study/sigma-spec). SPEC.md lists each
+   one with its Sigma source and the few deviations. Sizes are px and do not scale with the viewport:
+   Sigma keeps 88 at 1024 and at 1920 and drops to 36 below 900. */
+
+@font-face {
+  font-family: "Regie";
+  src: url("../../assets/fonts/Regie-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Proxima Nova demo files exist only on the studio machine; live, the stack falls through to Figtree.
+   The demo files draw a "DEMO" flower for ! " # $ % & ' ( ) * + - / 4 < = > @ [ \ ] ^ _ ` { | } ~ and lack
+   – — ‘ ’ “ ” … · × ₹, so unicode-range keeps Proxima to clean letters and punctuation. Digits fall through
+   to Figtree, so prices and counts stay in one face. */
+@font-face { font-family: "Proxima Nova"; src: url("../../assets/fonts/proxima-demo/Fontspring-DEMO-proximanova-regular.otf") format("opentype"); font-weight: 400; font-display: swap; unicode-range: U+20, U+2C, U+2E, U+3A-3B, U+3F, U+41-5A, U+61-7A; }
+@font-face { font-family: "Proxima Nova"; src: url("../../assets/fonts/proxima-demo/Fontspring-DEMO-proximanova-bold.otf") format("opentype"); font-weight: 700; font-display: swap; unicode-range: U+20, U+2C, U+2E, U+3A-3B, U+3F, U+41-5A, U+61-7A; }
+
+:root {
+  /* Colour. One ink; hierarchy comes from its opacity, never a second colour. */
+  --ink: #333333;
+  --ink-90: rgba(51, 51, 51, .9);   /* primary button hover, outline button border */
+  --ink-80: rgba(51, 51, 51, .8);   /* every text-link hover */
+  --ink-70: rgba(51, 51, 51, .7);   /* secondary text, input/stepper/tab/spec-row rules */
+  --ink-60: rgba(51, 51, 51, .6);   /* inactive tab, inactive thumbnail */
+  --ink-30: rgba(51, 51, 51, .3);   /* inactive gallery dot, idle drawer action */
+  --ink-10: rgba(51, 51, 51, .1);   /* hairlines: listing grid, totals, related cells */
+  --black: #000000;                 /* stepper and outline-button text */
+  --paper: #FEFEFD;                 /* body, header, dropdown, phone menu body */
+  --white: #FFFFFF;                 /* home content layer, drawer, inputs, footer, phone header */
+  --cream: #FAF7EF;                 /* newsletter (our letter) panel */
+  --band: #FAF8F2;                  /* full-bleed spec/tabs band */
+  --thumb: #EBEBEB;                 /* gallery thumbnail tiles */
+  --grey-count: #7D7D7D;            /* counts beside list items */
+  --grey-menu: #575757;             /* phone menu items */
+  --disabled: #999999;              /* disabled radio */
+  --scrim: rgba(0, 0, 0, .15);      /* behind drawers */
+  --success: rgb(51, 191, 138);     /* 1px border of a success message */
+  --warning: rgb(193, 72, 5);       /* 1px border of a notice */
+  --shadow-drawer: -2px 0 5px rgba(0, 0, 0, .5);
+  --shadow-select: 0 0 10px rgba(51, 51, 51, .1);
+
+  /* Type. Three faces, two working sizes, weight 400 except where noted. */
+  --font-display: "Regie", Georgia, serif;                       /* Sigma Serif head */
+  --font-text: "Newsreader", Georgia, serif;                     /* Sigma Serif (text cut) */
+  --font-ui: "Proxima Nova", "Figtree", "Helvetica Neue", Arial, sans-serif; /* Sigma Sans */
+  --font-hand: "Caveat", "Bradley Hand", cursive;                /* real handwritten notes only */
+  --text-wght: 500;          /* Newsreader 500 matches Sigma Serif 400's colour on screen (SPEC.md, fonts) */
+  --text-bold: 700;
+
+  --fs-ui: 13px;   --lh-ui: 16.25px;  --ls-ui: .08px;   /* every label, nav item, spec cell, bullet */
+  --ls-action: .26px;                                    /* buttons and chevron text actions */
+  --ls-story: .2px;                                      /* story kicker, about labels */
+  --fs-text: 16px; --lh-text: 20px;   --ls-text: .08px;  /* names, prices, body */
+  --lh-title: 17.6px;                                    /* 16px serif caps titles (section, card, h4) */
+  --fs-tile: 21px; --lh-tile: 23.1px;                    /* title on an image tile */
+  --fs-tile-l: 24px; --lh-tile-l: 30px;                  /* title on a large (video) tile; 20/22 on phone */
+  --fs-cta: 36px;  --lh-cta: 45px;                       /* story cover call to action */
+
+  /* Display (Regie). Desktop values; the phone block below swaps them. */
+  --fs-d1: 88px;  --lh-d1: 83.6px;  --ls-d1: -1.32px;    /* product title, cart/checkout title, profile name */
+  --lh-d1-home: 83.8px; --ls-d1-home: -3px;              /* home intro H1 */
+  --lh-d1-image: 96.8px;                                 /* 88px title over a full-bleed image */
+  --fs-d2: 48px;  --lh-d2: 52.8px;                       /* statements, story headline */
+  --lh-d2-list: 60px;                                    /* listing title */
+  --fs-d3: 36px;  --lh-d3: 39.6px;                       /* every phone hero */
+
+  /* Layout. No max width anywhere; a 12-column grid inside 16px margins. */
+  --margin: 16px;
+  --gutter: 16px;
+  --row-gap: 24px;
+  --section-pad: 80px;       /* top and bottom of every section, so sections sit 160 apart */
+  --title-gap: 80px;         /* centred section title to its content */
+  --page-top: 160px;         /* first block of a listing, cart, profile or questions page */
+  --buy-gap: 160px;          /* hero image to buy section, buy section to the next block */
+  --measure: 500px;          /* centred editorial copy */
+  --measure-story: 560px;    /* story body */
+  --measure-card: 344px;     /* excerpt under a story card, intro copy box */
+  --buybox: 464px;
+
+  /* Shape */
+  --radius: 0;
+  --radius-input: 1px;
+  --hairline: 1px;
+  --control-h: 40px;
+  --header-h: 48.25px;       /* 16.25 line + 16 + 16 */
+  --promo-h: 48px;           /* 72 on phone, where it wraps */
+  --drawer-w: 390px;
+
+  /* Motion. Hovers are instant; only these move. */
+  --t-drawer: right .3s ease;
+  --t-scrim: opacity .3s ease;
+  --t-menu-open: transform .1s linear;
+  --t-menu-close: transform .2s linear .1s;
+  --t-sheet: .2s linear;      /* phone menu sheet */
+  --t-accordion: .2s;         /* phone menu accordion height; the +/- turns in .3s linear */
+  --t-subbar: all .1s linear;
+  --t-tab: color .3s ease;
+
+  --focus: 0 0 0 2px var(--white), 0 0 0 3px var(--ink);
+
+  --z-subbar: 900;
+  --z-header: 1000;
+  --z-scrim: 9000;
+  --z-drawer: 9001;
+  --z-sheet: 10001;
+}
+
+/* Sigma's desktop/phone breakpoint is 900/901. Only the display sizes, section padding and promo height change. */
+@media (max-width: 900px) {
+  :root {
+    --fs-d1: 36px; --lh-d1: 39.6px; --ls-d1: normal;
+    --lh-d1-home: 39.6px; --ls-d1-home: normal; --lh-d1-image: 39.6px;
+    --fs-d2: 36px; --lh-d2: 39.6px; --lh-d2-list: 45px;
+    --fs-tile-l: 20px; --lh-tile-l: 22px;
+    --section-pad: 48px;
+    --page-top: 96px;
+    --promo-h: 72px;
+  }
+}

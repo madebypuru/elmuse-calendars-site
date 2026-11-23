@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2027 calendars by elmuse</title>
+  <meta name="description" content="Three 2027 calendars by elmuse, for your team and your clients.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Instrument+Serif&display=swap">
+  <link rel="preload" as="font" type="font/otf" href="assets/fonts/Regie-Regular.otf" crossorigin>
+  <link rel="stylesheet" href="extras.css">
+  <style>body { margin: 0; background: #1d1b1a; }</style>
+</head>
+<body>
+
+<!-- temporary time and volume bar for viewing this page on its own; the merged page has one shared bar -->
+<div class="ex-dev" data-dev-bar>
+  <label class="ex-dev__item">
+    <span>time</span>
+    <input type="range" id="ex-dev-time" min="0" max="100" step="1" value="33" aria-label="Time of day">
+  </label>
+  <label class="ex-dev__item">
+    <span>volume</span>
+    <input type="range" id="ex-dev-vol" min="0" max="100" step="1" value="0" aria-label="Volume">
+  </label>
+</div>
+
+<main>
+
+  <!-- ============ 1. opening: a parcel on the table ============ -->
+  <section id="opening" class="ex ex--opening" aria-labelledby="ex-open-title" data-state="closed">
+    <div class="ex__scene" aria-hidden="true">
+      <div class="ex__canvas">
+        <img class="ex__bg" data-k="0" alt="" data-src="assets/scene/table/morning.jpg">
+        <img class="ex__bg" data-k="1" alt="" data-src="assets/scene/table/afternoon.jpg">
+        <img class="ex__bg" data-k="2" alt="" data-src="assets/scene/table/dusk.jpg">
+        <img class="ex__bg" data-k="3" alt="" data-src="assets/scene/table/night.jpg">
+
+        <!-- the parcel's bottom sheet, under its contents -->
+        <div class="ex__obj ex__obj--base" data-obj="base" style="--th: .05">
+          <i class="ex__cast"></i>
+          <div class="ex__body ex__kraft-in" data-lit></div>
+        </div>
+
+        <!-- what is inside: a rolled Distinctive, a Sanctuary sheet, a Polaroid card -->
+        <div class="ex__obj ex__obj--roll" data-obj="distinctive" style="--th: .6">
+          <i class="ex__cast"></i>
+          <div class="ex__body">
+            <div class="ex__roll-flat" data-lit></div>
+            <div class="ex__roll-tube" data-lit></div>
+          </div>
+        </div>
+        <div class="ex__obj ex__obj--sheet" data-obj="sanctuary" style="--th: .12">
+          <i class="ex__cast"></i>
+          <div class="ex__body" data-lit></div>
+        </div>
+        <div class="ex__obj ex__obj--card" data-obj="polaroid" style="--th: .16">
+          <i class="ex__cast"></i>
+          <div class="ex__body" data-lit></div>
+        </div>
+
+        <!-- the wrapping: two flaps of kraft meeting at a seam, a green cotton string, a tag -->
+        <div class="ex__obj ex__obj--wrap" data-obj="wrap" style="--th: 1">
+          <i class="ex__cast"></i>
+          <div class="ex__flaps">
+            <div class="ex__flap ex__flap--l">
+              <div class="ex__face ex__face--out ex__kraft" data-lit></div>
+              <div class="ex__face ex__face--in ex__kraft-in" data-lit></div>
+            </div>
+            <div class="ex__flap ex__flap--r">
+              <div class="ex__face ex__face--out ex__kraft" data-lit></div>
+              <div class="ex__face ex__face--in ex__kraft-in" data-lit></div>
+            </div>
+          </div>
+          <i class="ex__edges"></i>
+          <svg class="ex__string" viewBox="0 0 330 225" preserveAspectRatio="none">
+            <g class="ex__twine">
+              <path d="M0.5 121 C 80 119, 150 123, 206 120 S 300 119, 329.5 122"/>
+              <path d="M203 0.5 C 201 50, 205 90, 204 120 S 202 190, 205 224.5"/>
+              <path d="M204 120 C 190 101, 168 98, 170 112 C 172 124, 192 125, 204 120"/>
+              <path d="M204 120 C 216 99, 240 97, 239 111 C 238 124, 217 126, 204 120"/>
+              <path d="M204 120 C 199 136, 192 149, 181 163"/>
+              <path d="M204 120 C 213 137, 222 146, 236 156"/>
+            </g>
+            <g class="ex__twist">
+              <path d="M0.5 121 C 80 119, 150 123, 206 120 S 300 119, 329.5 122"/>
+              <path d="M203 0.5 C 201 50, 205 90, 204 120 S 202 190, 205 224.5"/>
+              <path d="M204 120 C 190 101, 168 98, 170 112 C 172 124, 192 125, 204 120"/>
+              <path d="M204 120 C 216 99, 240 97, 239 111 C 238 124, 217 126, 204 120"/>
+              <path d="M204 120 C 199 136, 192 149, 181 163"/>
+              <path d="M204 120 C 213 137, 222 146, 236 156"/>
+            </g>
+            <g class="ex__twine-hi">
+              <path d="M0.5 121 C 80 119, 150 123, 206 120 S 300 119, 329.5 122"/>
+              <path d="M203 0.5 C 201 50, 205 90, 204 120 S 202 190, 205 224.5"/>
+              <path d="M204 120 C 190 101, 168 98, 170 112 C 172 124, 192 125, 204 120"/>
+              <path d="M204 120 C 216 99, 240 97, 239 111 C 238 124, 217 126, 204 120"/>
+              <path d="M204 120 C 199 136, 192 149, 181 163"/>
+              <path d="M204 120 C 213 137, 222 146, 236 156"/>
+            </g>
+            <ellipse class="ex__knot" cx="204" cy="120" rx="5.2" ry="4.3"/>
+            <path class="ex__thread" d="M205 122 C 214 138, 232 150, 247 160"/>
+          </svg>
+          <div class="ex__tag" data-lit>
+            <span class="ex__tag-hole"></span>
+            <span class="ex__tag-mark">elmuse<sup>✦</sup></span>
+            <span class="ex__tag-year">2027</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex__ui ex__ui--open">
+      <header class="ex__head" data-ink="copy" data-ink-target="6.5">
+        <h1 id="ex-open-title" class="ex__year"><span class="ex__vh">elmuse calendars </span>2027</h1>
+        <p class="ex__line">three calendars, three places in your life</p>
+      </header>
+      <button type="button" class="ex__btn ex__open-btn" id="ex-open-btn" data-ink="glass">open the parcel</button>
+      <nav class="ex__picks" id="ex-picks" aria-label="The three calendars">
+        <a class="ex__pick" href="#polaroid" data-for="polaroid" data-ink="glass" data-ink-group="picks">
+          <span class="ex__pick-name">Polaroid Calendar</span>
+          <span class="ex__pick-line">the year that travels</span>
+        </a>
+        <a class="ex__pick" href="#sanctuary" data-for="sanctuary" data-ink="glass" data-ink-group="picks">
+          <span class="ex__pick-name">Sanctuary Calendar</span>
+          <span class="ex__pick-line">the year you plan</span>
+        </a>
+        <a class="ex__pick" href="#distinctive" data-for="distinctive" data-ink="glass" data-ink-group="picks">
+          <span class="ex__pick-name">Distinctive Calendar</span>
+          <span class="ex__pick-line">the year at a glance</span>
+        </a>
+      </nav>
+    </div>
+    <svg class="ex__defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <!-- the string and its thread take the measured light of the table -->
+    <filter id="ex-relight-table" color-interpolation-filters="sRGB">
+      <feColorMatrix id="ex-relight-table-m" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+    </filter>
+    </svg>
+  </section>
+
+  <!-- ============ 2. for your team: your name on the birch board ============ -->
+  <section id="team" class="ex ex--team" aria-labelledby="ex-team-title">
+    <div class="ex__scene" aria-hidden="true">
+      <div class="ex__canvas">
+        <img class="ex__bg" data-k="0" alt="" data-src="assets/scene/desk/morning.jpg">
+        <img class="ex__bg" data-k="1" alt="" data-src="assets/scene/desk/afternoon.jpg">
+        <img class="ex__bg" data-k="2" alt="" data-src="assets/scene/desk/dusk.jpg">
+        <img class="ex__bg" data-k="3" alt="" data-src="assets/scene/desk/night.jpg">
+        <i class="ex__wallcast"></i>
+        <i class="ex__contact"></i>
+        <div class="ex__plank">
+          <div class="ex__plank-face" data-lit>
+            <div class="ex__plank-ledge"></div>
+            <div class="ex__plank-band"><span class="ex__burn" id="ex-burn">elmuse</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex__ui ex__ui--team">
+      <div class="ex__team-copy" data-ink="copy">
+        <p class="ex__kicker">for your team</p>
+        <h2 id="ex-team-title" class="ex__title">make it yours</h2>
+        <p class="ex__lede">your name burnt into the birch, and a page each month that speaks to your people.</p>
+        <div class="ex__field ex__field--name" data-ink="glass">
+          <label for="ex-company">your company name</label>
+          <input id="ex-company" name="company" type="text" maxlength="40" autocomplete="organization" spellcheck="false" placeholder="elmuse" aria-describedby="ex-company-hint">
+          <span class="ex__vh" id="ex-company-hint">The engraving on the board and the phone preview change as you type.</span>
+        </div>
+      </div>
+
+      <div class="ex__plank-slot" aria-hidden="true"></div>
+
+      <figure class="ex__phone">
+        <figcaption class="ex__vh">Preview of the January page the QR code opens, with your company name.</figcaption>
+        <div class="ex__phone-screen">
+          <div class="ex__phone-bar" aria-hidden="true"></div>
+          <p class="ex__phone-kicker"><span class="ex__co">elmuse</span><span class="ex__nowrap">&nbsp;· January</span></p>
+          <p class="ex__phone-title">a new year, together</p>
+          <p class="ex__phone-unlock">opens on 1 January 2027</p>
+          <ul class="ex__phone-list">
+            <li><span class="ex__phone-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M4 4.5h12v8.5H8.5L5 16v-3H4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+              <span><span class="k">a note from the founder</span><span class="t">why this year matters</span><span class="d">two minutes, recorded for <span class="ex__co">elmuse</span></span></span></li>
+            <li><span class="ex__phone-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M4 8h10v3.5a4.5 4.5 0 0 1-4.5 4.5h-1A4.5 4.5 0 0 1 4 11.5zM14 9h1.2a1.8 1.8 0 0 1 0 3.6H14M7 6c0-1 .8-1.4.8-2.5M10.5 6c0-1 .8-1.4.8-2.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span><span class="k">this month’s ritual</span><span class="t">first-friday chai</span><span class="d">laptops shut at four, one pot, one table</span></span></li>
+            <li><span class="ex__phone-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M8 14.5V4.5l8-1.5v10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="6" cy="14.5" r="2" fill="currentColor"/><circle cx="14" cy="13" r="2" fill="currentColor"/></svg></span>
+              <span><span class="k">a playlist</span><span class="t">monday focus</span><span class="d">forty minutes, no lyrics</span></span></li>
+            <li><span class="ex__phone-ico" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><rect x="3.5" y="4.5" width="13" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 8.5h13M7 3v3M13 3v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+              <span><span class="k">a date to remember</span><span class="t">26 January</span><span class="d">the office is shut; flag-hoisting at nine</span></span></li>
+          </ul>
+        </div>
+      </figure>
+
+      <div class="ex__custom-wrap" data-ink="copy">
+        <dl class="ex__custom">
+          <div><dt>Sanctuary</dt><dd>your logo engraved on the birch board. the artwork and monthly themes can be changed, and the QR can open your own page each month, run by your team or by elmuse.</dd></div>
+          <div><dt>Distinctive</dt><dd>custom artwork on larger orders.</dd></div>
+          <div><dt>Polaroid</dt><dd>your brand stickers added.</dd></div>
+        </dl>
+        <p class="ex__versions">we can make separate versions for your clients and for your team.</p>
+      </div>
+    </div>
+    <svg class="ex__defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <!-- laser-burnt letters: a ragged edge and a faint scorched halo -->
+    <filter id="ex-burn-f" x="-6%" y="-30%" width="112%" height="160%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.3" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.35" numOctaves="2" seed="2" result="n2"/>
+      <feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.3 1.25" result="mottle"/>
+      <feComposite in="d" in2="mottle" operator="in" result="ink"/>
+      <feMorphology in="SourceAlpha" operator="dilate" radius="0.6" result="dil"/>
+      <feGaussianBlur in="dil" stdDeviation="1.1" result="halo"/>
+      <feFlood flood-color="#6b3c18" flood-opacity=".34"/>
+      <feComposite in2="halo" operator="in" result="scorch"/>
+      <feMerge><feMergeNode in="scorch"/><feMergeNode in="d" /><feMergeNode in="ink"/></feMerge>
+    </filter>
+    </svg>
+  </section>
+
+  <!-- ============ 3. enquire: a glass card on the wall ============ -->
+  <section id="enquire" class="ex ex--enquire" aria-labelledby="ex-enq-title">
+    <div class="ex__scene" aria-hidden="true">
+      <div class="ex__canvas">
+        <img class="ex__bg" data-k="0" alt="" data-src="assets/scene/wall/morning.jpg">
+        <img class="ex__bg" data-k="1" alt="" data-src="assets/scene/wall/afternoon.jpg">
+        <img class="ex__bg" data-k="2" alt="" data-src="assets/scene/wall/dusk.jpg">
+        <img class="ex__bg" data-k="3" alt="" data-src="assets/scene/wall/night.jpg">
+      </div>
+    </div>
+
+    <div class="ex__ui ex__ui--enq">
+      <div class="ex__card" id="ex-enq-card" data-ink="card">
+        <h2 id="ex-enq-title" class="ex__title">tell us about your order</h2>
+
+        <form class="ex__form" id="ex-enq-form" method="post" novalidate>
+          <div class="ex__grid">
+            <div class="ex__f">
+              <label for="ex-f-company">company name</label>
+              <input id="ex-f-company" name="company" type="text" autocomplete="organization" required maxlength="80" aria-describedby="ex-e-company">
+              <p class="ex__err" id="ex-e-company"></p>
+            </div>
+            <div class="ex__f">
+              <label for="ex-f-contact">contact person</label>
+              <input id="ex-f-contact" name="contact" type="text" autocomplete="name" required maxlength="80" aria-describedby="ex-e-contact">
+              <p class="ex__err" id="ex-e-contact"></p>
+            </div>
+            <div class="ex__f">
+              <label for="ex-f-email">email</label>
+              <input id="ex-f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" spellcheck="false" aria-describedby="ex-e-email">
+              <p class="ex__err" id="ex-e-email"></p>
+            </div>
+            <div class="ex__f">
+              <label for="ex-f-phone">phone</label>
+              <input id="ex-f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="24" aria-describedby="ex-e-phone">
+              <p class="ex__err" id="ex-e-phone"></p>
+            </div>
+
+            <fieldset class="ex__f ex__f--wide ex__checks" aria-describedby="ex-e-cals">
+              <legend>which calendars</legend>
+              <div class="ex__check-row">
+                <label class="ex__check"><input type="checkbox" name="calendars" value="Polaroid"><span>Polaroid</span></label>
+                <label class="ex__check"><input type="checkbox" name="calendars" value="Sanctuary"><span>Sanctuary</span></label>
+                <label class="ex__check"><input type="checkbox" name="calendars" value="Distinctive"><span>Distinctive</span></label>
+              </div>
+              <p class="ex__err" id="ex-e-cals"></p>
+            </fieldset>
+
+            <div class="ex__f">
+              <label for="ex-f-qty">quantity</label>
+              <input id="ex-f-qty" name="quantity" type="number" inputmode="numeric" min="1" step="1" required aria-describedby="ex-e-qty">
+              <p class="ex__err" id="ex-e-qty"></p>
+            </div>
+            <div class="ex__f">
+              <label for="ex-f-date">needed by</label>
+              <input id="ex-f-date" name="neededBy" type="date" required aria-describedby="ex-e-date">
+              <p class="ex__err" id="ex-e-date"></p>
+            </div>
+
+            <div class="ex__f ex__f--wide">
+              <label for="ex-f-notes">anything else <span class="ex__opt">(optional)</span></label>
+              <textarea id="ex-f-notes" name="notes" rows="3" maxlength="1500"></textarea>
+            </div>
+          </div>
+          <div class="ex__submit">
+            <button type="submit" class="ex__btn ex__btn--solid">send enquiry</button>
+            <p class="ex__status" id="ex-enq-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div class="ex__thanks" id="ex-enq-thanks" tabindex="-1" hidden>
+          <p class="ex__thanks-title">thank you<span id="ex-thanks-name"></span>.</p>
+          <p class="ex__thanks-text">your enquiry is with us. we will write back with options and timings.</p>
+          <button type="button" class="ex__btn" id="ex-enq-again">see what you sent</button>
+        </div>
+      </div>
+
+      <aside class="ex__aside" aria-label="Other ways to reach us">
+        <div class="ex__aside-copy" data-ink="copy">
+          <p class="ex__aside-title">rather talk it through?</p>
+          <span class="ex__wa-wrap" id="ex-wa-wrap">
+            <button type="button" class="ex__btn ex__wa" id="ex-wa" data-ink="glass">
+              <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 2.6a7.3 7.3 0 0 0-6.3 11l-1 3.7 3.8-1A7.3 7.3 0 1 0 10 2.6z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M7.4 6.6c.3-.4.7-.3.9 0l.6 1.3c.1.3 0 .6-.2.8l-.4.4c.5 1.1 1.4 2 2.6 2.6l.4-.4c.2-.2.5-.3.8-.2l1.3.6c.3.2.4.6 0 .9-.6.7-1.5 1-2.6.5a8 8 0 0 1-3.9-3.9c-.5-1.1-.2-2 .5-2.6z" fill="currentColor"/></svg>
+              <span>WhatsApp us</span>
+            </button>
+          </span>
+          <p class="ex__ship">we ship from 10 December to the first week of January; international delivery on request.</p>
+        </div>
+
+        <form class="ex__wait" id="ex-wait-form" method="post" novalidate data-ink="copy" data-ink-target="6">
+          <label for="ex-wait-email">buying one for yourself? join the waitlist</label>
+          <div class="ex__wait-row">
+            <input id="ex-wait-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" spellcheck="false" placeholder="your email" aria-describedby="ex-wait-status">
+            <button type="submit" class="ex__btn" data-ink="glass">join</button>
+          </div>
+          <p class="ex__status ex__status--small" id="ex-wait-status" role="status" aria-live="polite"></p>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+
+<script src="extras.js"></script>
+</body>
+</html>

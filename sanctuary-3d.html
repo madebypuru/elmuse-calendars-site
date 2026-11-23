@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sanctuary Calendar 2027 · elmuse</title>
+  <meta name="description" content="The Sanctuary Calendar by elmuse: a birch desk calendar for the people you work with, with your name burned into the board.">
+  <meta name="theme-color" content="#f1ebe2">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Nunito+Sans:opsz,wdth,wght,YTLC@6..12,100,600,500&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/3d/sanctuary.glb" as="fetch" crossorigin>
+  <link rel="stylesheet" href="sanctuary-3d.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+      "gsap/": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/"
+    }
+  }
+  </script>
+  <script type="module" src="sanctuary-3d.js"></script>
+</head>
+<body>
+  <div class="ld" id="pre" role="progressbar" aria-label="Loading the Sanctuary calendar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <span class="ld__half ld__half--l" aria-hidden="true"></span><span class="ld__half ld__half--r" aria-hidden="true"></span>
+    <div class="ld__frame" aria-hidden="true">
+      <img class="ld__mark" src="assets/3d/figma/wordmark-loader.svg" alt="" width="152" height="32">
+      <span class="ld__track"><i class="ld__fill"></i></span>
+      <div class="ld__title">
+        <p class="ld__name" data-split>The sanctuary calendar</p>
+        <p class="ld__ed">2027 edition</p>
+      </div>
+      <span class="ld__pct"></span>
+    </div>
+  </div>
+
+  <canvas class="gl" id="gl" aria-hidden="true"></canvas>
+  <div class="layers" id="layers" aria-hidden="true"></div>
+  <div class="dim" id="dim" aria-hidden="true"></div>
+  <div class="frame" id="frame" aria-hidden="true"></div>
+  <div class="tags" id="tags" aria-hidden="true">
+    <svg class="tags__lines" id="tag-lines"></svg>
+  </div>
+
+  <!-- the owner's opening (Figma frames 1-4): fixed, driven by scroll -->
+  <div class="intro" id="intro">
+    <div class="hero" id="hero">
+      <p class="hero__eyebrow">The sanctuary Calendar</p>
+      <h1 class="hero__title" data-split>The year you plan,<br>on a board that stays.</h1>
+      <div class="hero__ctas">
+        <a class="btn btn--light" href="index.html#enquire">For personal use</a>
+        <a class="btn btn--dark" href="index.html#enquire">Bulk Order</a>
+      </div>
+    </div>
+    <p class="para" id="para">Sanctuary is a birch desk calendar made to be given. Twelve months of paper, held by a board that outlasts them.</p>
+    <figure class="card card--1" id="card1" data-w="639.73"><img src="assets/3d/figma/card-december.webp" width="1000" height="1250" alt="The Sanctuary calendar standing on its birch foot, December showing" decoding="async"></figure>
+    <figure class="card card--2" id="card2" data-w="1017.66"><img src="assets/3d/figma/card-june.webp" width="1400" height="933" alt="Hands slotting the June sheet into the birch board" loading="lazy" decoding="async"></figure>
+    <p class="cap" id="cap">Every piece slots in by hand, no tools and no glue.</p>
+  </div>
+
+  <nav class="nav" aria-label="Site">
+    <div class="nav__pill nav__pill--main">
+      <a class="nav__brand" href="index.html" aria-label="elmuse home"><img src="assets/3d/figma/wordmark-nav.svg" alt="" width="72" height="15"></a>
+      <button class="nav__menu" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Open menu, current section Sanctuary">Sanctuary<img src="assets/3d/figma/chevron-up.svg" alt="" width="14" height="14"></button>
+    </div>
+    <a class="nav__pill nav__pill--wa" id="wa" role="link" aria-disabled="true" aria-label="WhatsApp, coming soon"><img src="assets/3d/figma/whatsapp.svg" alt="" width="30" height="30"></a>
+  </nav>
+  <button class="sound glass" id="sound" type="button" aria-pressed="false"><span class="sound__eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="sound-label">sound off</span></button>
+
+  <main>
+    <section class="ch ch--intro" id="intro-s" data-frames="-100,0" aria-label="The Sanctuary calendar"></section>
+    <section class="ch ch--hand" id="hand" data-frames="0,100" aria-hidden="true"></section>
+
+    <section class="ch" id="ch2" data-h="5" data-frames="100,520" aria-labelledby="ch2-h">
+      <div class="blk" style="--at:1.15" data-at-phone="1.3">
+        <p class="blk__num"><span>02</span> the board</p>
+        <h2 class="blk__statement" id="ch2-h" data-split>Four parts, and nothing extra.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>Birch, brass and paper, cut and finished to sit together. Every piece slots in by hand, no tools and no glue.</p>
+      </div>
+      <ul class="vh">
+        <li>Birch board, 10 × 15 in, 4 mm thick</li>
+        <li>Ledge plate: slots in to make the ledge and the foot</li>
+        <li>Peg: holds the month in place</li>
+        <li>Sheets: a month to a sheet</li>
+        <li>Wall plate: swaps in when it hangs</li>
+        <li>Brass plate on the back: hangs it flat on a wall</li>
+      </ul>
+      <div class="blk" style="--at:4.12" data-at-phone="4.2">
+        <p class="blk__num"><span>02</span> desk or wall</p>
+        <h2 class="blk__statement" data-split>On the desk, or on the wall.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>Slide the table plate out and the wall plate in. A brass plate on the back lets it hang flat.</p>
+      </div>
+    </section>
+
+    <!-- the engraving chapter was removed (owner): a short bridge carries the camera back to the hero pose -->
+    <section class="ch" id="bridge" data-h="1.2" data-frames="520,740" aria-hidden="true"></section>
+
+    <section class="ch" id="ch4" data-h="4" data-frames="740,960" aria-labelledby="ch4-h">
+      <div class="blk" style="--at:2.3" data-at-phone="2.45">
+        <p class="blk__num"><span>03</span> one sheet, two sides</p>
+        <h2 class="blk__statement" id="ch4-h" data-split>Plan on the front. Reflect on the back.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>The front is the month, in weekly rows with room for each day’s to-dos. Turn it over and the same sheet is a journal page.</p>
+        <div class="act" data-pop><button type="button" class="act__btn" id="turn">Turn it over</button><span class="act__or micro">or drag the sheet</span></div>
+      </div>
+      <figure class="tile" style="--at:3.37" data-at-phone="3.45">
+        <div class="tile__win"><img src="assets/3d/img/sheet-back.webp" width="800" height="1000" alt="The back of a real January sheet, photographed flat: a postcard on top, the journal page below" loading="lazy" decoding="async"></div>
+        <figcaption class="micro">a real sheet, photographed</figcaption>
+      </figure>
+    </section>
+
+    <section class="ch" id="ch5" data-h="8" data-frames="960,1400" aria-labelledby="ch5-h">
+      <div class="blk blk--panel" style="--at:1.12" data-at-phone="1.29">
+        <p class="blk__num"><span>04</span> the journal · January</p>
+        <h2 class="blk__statement" id="ch5-h" data-split>A reflection to open the month.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>A short piece written for the month’s theme, to read with the first cup of tea.</p>
+        <div data-pop><div class="tabs" role="group" aria-label="Look closer at"><button type="button" class="tab is-on" data-go="1016" aria-current="true">Reflection</button><button type="button" class="tab" data-go="1084">Prompt</button><button type="button" class="tab" data-go="1154">Ritual</button></div></div>
+      </div>
+      <div class="blk blk--panel" style="--at:2.14" data-at-phone="2.31">
+        <p class="blk__num"><span>04</span> the journal · January</p>
+        <h2 class="blk__statement" data-split>A question to sit with.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>A “reflect” prompt, with lines to answer it in your own hand.</p>
+        <div data-pop><div class="tabs" role="group" aria-label="Look closer at"><button type="button" class="tab" data-go="1016">Reflection</button><button type="button" class="tab is-on" data-go="1084" aria-current="true">Prompt</button><button type="button" class="tab" data-go="1154">Ritual</button></div></div>
+      </div>
+      <div class="blk blk--panel" style="--at:3.19" data-at-phone="3.36">
+        <p class="blk__num"><span>04</span> the journal · January</p>
+        <h2 class="blk__statement" data-split>A small ritual.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>One slow, simple thing to do this month. Beside it, a QR with more.</p>
+        <div data-pop><div class="tabs" role="group" aria-label="Look closer at"><button type="button" class="tab" data-go="1016">Reflection</button><button type="button" class="tab" data-go="1084">Prompt</button><button type="button" class="tab is-on" data-go="1154" aria-current="true">Ritual</button></div></div>
+      </div>
+      <div class="blk blk--panel" style="--at:5.45" data-at-phone="5.5">
+        <p class="blk__num"><span>04</span> more for you · the QR</p>
+        <h2 class="blk__statement" data-split>At midnight, the month opens.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>Scan the “more for you” QR. On the 1st, it unlocks that month’s playlists, recipes, book lists and places.</p>
+        <div class="act" data-pop><button type="button" class="act__btn" id="scan-btn" data-go="1272">Scan it</button><span class="act__or micro">or tap the code</span></div>
+      </div>
+    </section>
+
+    <section class="ch" id="table" data-h="3" data-frames="1400,1500" aria-labelledby="table-h">
+      <div class="blk blk--months" style="--at:1.4" data-at-phone="1.3">
+        <p class="blk__num"><span>05</span> twelve themes</p>
+        <h2 class="blk__statement theme" id="table-h"><span id="theme-month">January</span> <em id="theme-title">Open Skies</em></h2>
+        <p class="phrase" id="theme-phrase">“your sign to look up”</p>
+        <div class="carctl glass" id="carctl" role="group" aria-label="Browse the months">
+    <button type="button" class="carctl__b" id="month-prev" aria-label="Previous month">‹</button>
+    <span class="carctl__n micro" id="theme-count">01 / 12</span>
+    <button type="button" class="carctl__b" id="month-next" aria-label="Next month">›</button>
+  </div>
+
+        <p class="vh" aria-live="polite" id="month-live"></p>
+      </div>
+    </section>
+
+    <!-- the postcard, on the owner's table (continues from the carousel's month) -->
+    <section class="ch" id="post" data-h="6" data-frames="1500,1720" aria-labelledby="post-h">
+      <div class="blk blk--side" style="--at:1.25" data-at-phone="1.3">
+        <p class="blk__num"><span>06</span> the postcard</p>
+        <h2 class="blk__statement" id="post-h" data-split>The picture tears off.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>The artwork strip is perforated. Drag it up to tear it off, or keep scrolling.</p>
+        <div class="act" data-pop><button type="button" class="glassbtn" id="tear-btn" data-gp="1642">Tear it off</button></div>
+      </div>
+      <div class="blk blk--side" style="--at:2.75" data-at-phone="2.8">
+        <p class="blk__num"><span>06</span> the postcard</p>
+        <h2 class="blk__statement" data-split>Turn it over: a real postcard.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>Room on the back for a note, an address and a stamp.</p>
+        <div class="act" data-pop><button type="button" class="glassbtn" id="card-flip" data-gp="1728">Turn it over</button></div>
+      </div>
+      <div class="blk blk--side" style="--at:3.4" data-at-phone="3.45" data-pin="0.8">
+        <p class="blk__num"><span>06</span> the postcard</p>
+        <h2 class="blk__statement" data-split>Send it, or keep it.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>Post it to someone who needs it this month, or keep it for yourself.</p>
+        <div class="act" data-pop><button type="button" class="btn btn--dark" id="send-btn" aria-pressed="false">Send it</button><button type="button" class="btn btn--light" id="keep-btn" aria-pressed="false">Keep it</button></div>
+        <p class="fate micro" id="fate" aria-live="polite"></p>
+      </div>
+      <div class="blk blk--side" style="--at:5.05" data-at-phone="5.1">
+        <p class="blk__num"><span>06</span> by December</p>
+        <h2 class="blk__statement" data-split>Twelve kept cards, one wall of art.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>The postcards gather over the year into a small gallery of 2027.</p>
+      </div>
+    </section>
+
+    <section class="ch" id="year" data-h="3" data-frames="1720,1820" aria-labelledby="year-h">
+      <div class="blk blk--side blk--panel" style="--at:1.25" data-at-phone="1.3" data-pin="1.0">
+        <p class="blk__num"><span>07</span> the year closes</p>
+        <h2 class="blk__statement" id="year-h" data-split>Twelve frames, and a letter to the year.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <p class="blk__body" data-lines>The last sheet keeps “moments that felt like a sanctuary” in twelve photo frames. On its back, a letter to 2027.</p>
+      </div>
+    </section>
+
+    <section class="ch" id="team" data-h="3" data-frames="1820,1920" aria-labelledby="team-h">
+      <div class="blk" style="--at:1.25" data-at-phone="1.3" data-pin="1.5">
+        <p class="blk__num"><span>08</span> made for your team</p>
+        <h2 class="blk__statement" id="team-h" data-split>Yours, from the wood to the QR.</h2>
+        <span class="blk__rule" aria-hidden="true"></span>
+        <ul class="list" data-lines>
+          <li><b class="micro">Your logo</b>Laser-engraved into the birch of every board.</li>
+          <li><b class="micro">Your artwork and themes</b>Your team supplies them, or elmuse makes them for you.</li>
+          <li><b class="micro">Your monthly QR</b>Your own page or a message each month, run by your team or by us, for the year or month by month.</li>
+          <li><b class="micro">Two editions</b>One for your clients, one for your team.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ch" id="begin" data-h="2.4" data-frames="1920,2000" aria-labelledby="begin-h">
+      <div class="blk blk--side" style="--at:1.72" data-at-phone="1.55" data-noexit>
+        <p class="blk__num"><span>09</span> let’s talk</p>
+        <h2 class="blk__statement" id="begin-h" data-split>Give your people a calmer 2027.</h2>
+        <div class="act act--begin" data-pop>
+          <a class="btn btn--dark" href="index.html#enquire">Bulk order</a>
+          <a class="btn btn--light" href="index.html#waitlist">For personal use</a>
+        </div>
+        <p class="blk__body blk__body--small" data-lines>Shipping runs from 10 December to the first week of January. International delivery on request.</p>
+      </div>
+    </section>
+  </main>
+  <p class="chip" id="chip" aria-hidden="true"></p>
+  <div id="spacer" aria-hidden="true"></div>
+  <div class="phone" id="phone" aria-hidden="true">
+    <div class="phone__body">
+      <div class="phone__screen">
+        <div class="phone__cam"><i class="vf"></i><i class="vf vf--tr"></i><i class="vf vf--bl"></i><i class="vf vf--br"></i><i class="scanline"></i><span class="tick">✓</span><span class="phone__cue micro">Point at the “more for you” code</span></div>
+        <div class="phone__page">
+          <p class="pp__kicker micro">elmuse · January</p>
+          <h3 class="pp__title">Open Skies</h3>
+          <p class="pp__phrase">“your sign to look up”</p>
+          <ul class="pp__list">
+            <li><b>Playlist</b>Uttarayan terrace</li>
+            <li><b>Recipe</b>Til-gud laddoo</li>
+            <li><b>Read</b>Beginning lightly</li>
+            <li><b>Place</b>The pols of old Ahmedabad</li>
+          </ul>
+          <p class="pp__unlock micro">Unlocked at midnight · 1 January 2027</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

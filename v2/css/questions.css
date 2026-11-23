@@ -1,0 +1,4 @@
+/* questions.html only: page title and intro (Sigma cart page), then Sigma's spec band with the questions as feature rows. */
+.questions__band { margin-top: 80px; }
+.questions__band .feature-row a:not(.link) { text-decoration: underline; text-underline-offset: 2px; }
+.questions__ways { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 8px; }

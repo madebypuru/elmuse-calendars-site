@@ -1,0 +1,13 @@
+/* teams.html only: Sigma's story page column (560, blocks 80 apart) holding spec rows and a checkout-style form. */
+.teams { padding-bottom: var(--section-pad); }
+.teams__block { max-width: var(--measure-story); margin: 80px auto 0; }
+.teams__line { display: block; }
+.teams__checks { gap: 8px 16px; }
+.teams__file { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.teams__file input:focus-visible + label { box-shadow: var(--focus); }
+.teams__file span { min-width: 0; overflow-wrap: anywhere; }
+.teams__talk { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 24px; }
+[data-plan-line]:empty { display: none; }
+[data-check-group][aria-invalid="true"] .check__box { border-color: var(--warning); }
+#enquiry-status:focus { outline: none; }
+#enquiry-status:focus-visible { box-shadow: var(--focus); }

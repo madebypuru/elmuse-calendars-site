@@ -1,0 +1,9 @@
+/* Checkout page only: Sigma's cart page (title, notice, items 73% | summary 23.65%) plus our details form under the items. */
+.checkout__form { margin-top: 80px; gap: 48px; }
+.checkout__form .summary__title { margin-bottom: 0; }
+.cart-row__info { display: grid; align-content: start; }
+.cart-row > p { font: var(--text-wght) var(--fs-text)/var(--lh-text) var(--font-text); }
+.summary__region { display: grid; gap: 8px; padding-bottom: 16px; }
+.summary .btn { margin-top: 0; }
+.summary__line { margin-top: 16px; }
+/* On phones Sigma puts the summary first because its button leads to another page; ours submits the form above it, so it follows the form. */

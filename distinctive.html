@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Distinctive Calendar · elmuse 2027</title>
+  <meta name="description" content="The Distinctive Calendar by elmuse: all of 2027 on one wall, three feet wide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Figtree:wght@400;500;600&family=Instrument+Serif&display=swap">
+  <link rel="preload" as="font" type="font/otf" href="assets/fonts/Regie-Regular.otf" crossorigin>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+
+  <section id="distinctive" class="dist" aria-labelledby="dist-title" data-level="0">
+
+    <!-- the room: one wall at four times of day; everything inside is placed in image pixels -->
+    <div class="dist__stage" role="group" aria-label="The Distinctive Calendar hanging on a wall above a sideboard">
+      <div class="dist__world">
+        <div class="dist__room" aria-hidden="true">
+          <div class="dist__frame" data-k="0"><canvas class="dist__ext" width="1" height="1"></canvas><img class="dist__bg" alt="" width="1344" height="752" data-src="assets/scene/wall/morning.jpg"></div>
+          <div class="dist__frame" data-k="1"><canvas class="dist__ext" width="1" height="1"></canvas><img class="dist__bg" alt="" width="1344" height="752" data-src="assets/scene/wall/afternoon.jpg"></div>
+          <div class="dist__frame" data-k="2"><canvas class="dist__ext" width="1" height="1"></canvas><img class="dist__bg" alt="" width="1344" height="752" data-src="assets/scene/wall/dusk.jpg"></div>
+          <div class="dist__frame" data-k="3"><canvas class="dist__ext" width="1" height="1"></canvas><img class="dist__bg" alt="" width="1344" height="752" data-src="assets/scene/wall/night.jpg"></div>
+        </div>
+        <div class="dist__cast" data-orient="horizontal" aria-hidden="true"></div>
+        <div class="dist__sheet" data-orient="horizontal" data-colour="green">
+          <div class="dist__light" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dist__copy" id="dist-copy">
+      <p class="dist__theme">The year at a glance</p>
+      <h2 id="dist-title" class="dist__title">The Distinctive Calendar</h2>
+      <p class="dist__lede">All of 2027 on one wall, big enough to plan every week in.</p>
+    </div>
+
+    <div class="dist__controls" id="dist-controls">
+      <div class="dist__pill dist__seg--zoom" role="group" aria-label="Look closer">
+        <button type="button" data-zoom="0" aria-pressed="true">2027</button>
+        <button type="button" data-zoom="1" aria-pressed="false">month</button>
+        <button type="button" data-zoom="2" aria-pressed="false">week</button>
+      </div>
+      <div class="dist__pill dist__seg--orient" role="group" aria-label="Hang it">
+        <button type="button" data-orient="horizontal" aria-pressed="true">horizontal</button>
+        <button type="button" data-orient="vertical" aria-pressed="false">vertical</button>
+        <span class="dist__size" id="dist-size">3 ft × 2 ft</span>
+      </div>
+      <div class="dist__pill dist__swatches" role="group" aria-label="Colour"></div>
+    </div>
+
+    <p class="dist__vh" aria-live="polite" id="dist-live"></p>
+  </section>
+
+  <!-- Temporary bar for viewing this section on its own. The merged page has one shared bar
+       that sends the same two events; delete this whole element then. -->
+  <div class="devbar" data-dev-bar>
+    <label>time <input type="range" id="devbar-time" min="0" max="100" step="1" value="33" aria-label="Time of day, morning to night"></label>
+    <label>volume <input type="range" id="devbar-vol" min="0" max="100" step="1" value="0" aria-label="Volume"></label>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var t = document.getElementById('devbar-time'), v = document.getElementById('devbar-vol');
+        if (window.distinctive) t.value = Math.round(window.distinctive.time * 100);
+        t.addEventListener('input', function () {
+          window.dispatchEvent(new CustomEvent('elmuse:time', { detail: { t: t.value / 100 } }));
+        });
+        v.addEventListener('input', function () {
+          window.dispatchEvent(new CustomEvent('elmuse:volume', { detail: { v: v.value / 100 } }));
+        });
+      });
+    </script>
+  </div>
+
+</main>
+<script src="distinctive.js" defer></script>
+</body>
+</html>

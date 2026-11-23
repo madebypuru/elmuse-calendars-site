@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Sanctuary Calendar · elmuse 2027</title>
+  <meta name="description" content="The elmuse Sanctuary Calendar for 2027: twelve loose sheets on an engraved birch board, a journal on every back, a postcard on every front. Made for corporate gifting.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%232b3d21%22/%3E%3Cpath d=%22M16 7l1.6 7.4L25 16l-7.4 1.6L16 25l-1.6-7.4L7 16l7.4-1.6z%22 fill=%22%23c7ef4e%22/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap">
+  <link rel="preload" as="image" href="assets/scene/desk/afternoon.jpg">
+  <link rel="preload" as="image" href="assets/sanctuary/page-01.jpg">
+  <link rel="stylesheet" href="sanctuary-story.css">
+</head>
+<body>
+
+<a class="skip" href="index.html#enquire">Skip to the enquiry form</a>
+
+<header class="bar" id="bar">
+  <a class="bar__brand" href="index.html" aria-label="elmuse, all 2027 calendars">elmuse<sup>✦</sup></a>
+  <span class="bar__name">The Sanctuary Calendar</span>
+  <nav class="bar__nav" aria-label="Chapters">
+    <button type="button" data-jump="1">Board</button>
+    <button type="button" data-jump="3">Two sides</button>
+    <button type="button" data-jump="4">Journal</button>
+    <button type="button" data-jump="7">QR</button>
+    <button type="button" data-jump="9">Themes</button>
+    <button type="button" data-jump="10">Postcard</button>
+    <button type="button" data-jump="15">For teams</button>
+  </nav>
+  <button type="button" class="bar__sound" id="sound" aria-pressed="false">
+    <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M3 8h3l4-3v10l-4-3H3z" fill="currentColor"/><path class="on" d="M13 7.5c1 .8 1.5 1.6 1.5 2.5s-.5 1.7-1.5 2.5M15.2 5.5c1.5 1.3 2.3 2.8 2.3 4.5s-.8 3.2-2.3 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path class="off" d="M13.5 8l4 4m0-4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <span id="sound-label">Sound off</span>
+  </button>
+  <a class="bar__cta" href="index.html#enquire">Enquire</a>
+  <i class="bar__progress" id="progress" aria-hidden="true"></i>
+</header>
+
+<main>
+  <!-- One pinned stage. The calendar stays at its centre; each step changes the setting and the pose. -->
+  <section class="story" id="story" aria-label="The Sanctuary Calendar, step by step">
+    <div class="stage" id="stage" data-tone="light">
+
+      <!-- settings behind the object, one per step, cross-faded with the scroll -->
+      <div class="bds" aria-hidden="true">
+        <div class="bd bd--desk" data-bd="desk"><img src="assets/scene/desk/afternoon.jpg" alt="" width="1344" height="752" fetchpriority="high"></div>
+        <div class="bd bd--grid" data-bd="grid"><svg class="grid-art" id="grid-art"></svg></div>
+        <div class="bd bd--macro" data-bd="macro"><img data-src="assets/sanctuary/photos/base-engraving-topdown.jpg" alt="" width="2000" height="1500"></div>
+        <div class="bd bd--studio" data-bd="studio"></div>
+        <div class="bd bd--paper" data-bd="paper"></div>
+        <div class="bd bd--night" data-bd="night"><img data-src="assets/scene/desk/night.jpg" alt="" width="1344" height="752"></div>
+        <div class="bd bd--art" data-bd="art"><img id="art-img" alt="" width="1100" height="1505"></div>
+        <div class="bd bd--sage" data-bd="sage"></div>
+        <div class="bd bd--wall" data-bd="wall"><ol class="wall" id="wall"></ol></div>
+        <div class="bd bd--dusk" data-bd="dusk"><img data-src="assets/scene/desk/dusk.jpg" alt="" width="1344" height="752"></div>
+        <div class="bd bd--hands" data-bd="hands"><img data-src="assets/sanctuary/photos/in-hand-angled.jpg" alt="" width="1500" height="2000"></div>
+        <div class="bd bd--forest" data-bd="forest"></div>
+        <i class="scrim" id="scrim"></i>
+      </div>
+
+      <svg class="path" id="qr-path" aria-hidden="true"><path id="qr-path-d" d=""/></svg>
+
+      <!-- the calendar -->
+      <div class="obj" id="obj" role="img" aria-label="The Sanctuary Calendar on its birch board">
+        <div class="obj__in" id="obj-in">
+          <i class="obj__shadow"></i>
+          <div class="obj__board"><b class="pin" data-pin="0">1</b></div>
+          <div class="obj__stack" id="obj-stack"><i></i><i></i></div>
+          <div class="obj__sheetwrap" id="obj-sheetwrap">
+            <div class="obj__sheet" id="obj-sheet">
+              <div class="obj__body">
+                <div class="face face--front" id="f-body-front"></div>
+                <div class="face face--back" id="f-body-back"></div>
+              </div>
+              <div class="obj__strip" id="obj-strip">
+                <div class="obj__card" id="obj-card">
+                  <div class="face face--front" id="f-strip-front"></div>
+                  <div class="face face--back" id="f-strip-back"><span class="postmark" id="postmark" aria-hidden="true">elmuse post<b id="pm-date">1 · I · 2027</b></span></div>
+                  <i class="card-pin" aria-hidden="true"></i>
+                </div>
+              </div>
+              <button type="button" class="qr-spot" id="qr-spot" aria-label="Scan the QR: see what this month unlocks" tabindex="-1"></button>
+            </div>
+          </div>
+          <div class="obj__base" id="obj-base">
+            <div class="obj__ledge"><b class="pin" data-pin="1">2</b></div>
+            <div class="obj__band"><span class="obj__engrave" id="engrave">elmuse</span><b class="pin" data-pin="3">4</b></div>
+          </div>
+          <div class="obj__peg" id="obj-peg"><i></i><b class="pin" data-pin="2">3</b></div>
+        </div>
+      </div>
+
+      <!-- the phone for the QR steps -->
+      <div class="phone" id="phone" aria-hidden="true">
+        <div class="phone__screen">
+          <div class="phone__lock" id="phone-lock">
+            <p class="phone__date" id="phone-date">Thursday, 31 December</p>
+            <p class="phone__time" id="phone-time">23:59</p>
+            <p class="phone__hint" id="phone-hint">January opens at midnight</p>
+          </div>
+          <div class="phone__app" id="phone-app">
+            <p class="phone__kicker" id="phone-kicker">elmuse · January</p>
+            <p class="phone__title" id="phone-title">Open Skies</p>
+            <p class="phone__unlock" id="phone-unlock">Unlocked 1 January 2027</p>
+            <ul class="phone__list" id="phone-list"></ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="chip" id="chip" aria-hidden="true"></p>
+      <p class="cue" id="cue"><span>Keep scrolling</span><i aria-hidden="true"></i></p>
+      <p class="count" id="count" aria-hidden="true"><b id="count-n">01</b> / 17</p>
+
+      <!-- the words, one step at a time -->
+      <div class="copy" id="copy">
+        <article class="beat">
+          <p class="kicker">elmuse · the 2027 calendar</p>
+          <h1>The Sanctuary Calendar</h1>
+          <p class="lede">A year that moves at a kinder pace. Twelve loose sheets on a birch board, for the desks of the people you work with.</p>
+        </article>
+
+        <article class="beat">
+          <p class="kicker"><b>01</b> The board</p>
+          <h2>Birch, made to stay on the desk.</h2>
+          <ol class="parts" id="parts">
+            <li><b>1</b> A birch-wood board</li>
+            <li><b>2</b> A ledge the sheets rest on</li>
+            <li><b>3</b> A wooden peg to hold them</li>
+            <li><b>4</b> A band below for your logo</li>
+          </ol>
+          <p class="small">It stands on a desk or hangs on a wall.</p>
+        </article>
+
+        <article class="beat">
+          <p class="kicker"><b>02</b> Your name in the wood</p>
+          <h2>Burnt in, not printed.</h2>
+          <p>Your logo is laser-engraved into the birch below the ledge. Type your company’s name and watch it burn in.</p>
+          <form class="engrave" id="engrave-form" autocomplete="off">
+            <label for="engrave-input" class="vh">Company name</label>
+            <input id="engrave-input" name="company" type="text" maxlength="24" placeholder="Your company" spellcheck="false" enterkeyhint="done">
+            <button type="submit" class="btn btn--solid">Engrave</button>
+          </form>
+        </article>
+
+        <article class="beat">
+          <p class="kicker"><b>03</b> One sheet, two sides</p>
+          <h2>Plan on the front. Reflect on the back.</h2>
+          <p>The front is the month, in weekly rows with room for each day’s to-dos. Turn it over and the same sheet is a journal page.</p>
+          <button type="button" class="btn" data-go="3:0.9">Turn it over</button>
+        </article>
+
+        <article class="beat">
+          <p class="kicker"><b>04</b> The journal · <span class="jm">January</span></p>
+          <h2>A reflection to open the month.</h2>
+          <p>A short piece written for the month’s theme, to read with the first cup of tea.</p>
+          <div class="tabs" role="group" aria-label="Look closer at"><button type="button" class="tab is-on" data-go="4:0.6">Reflection</button><button type="button" class="tab" data-go="5:0.6">Prompt</button><button type="button" class="tab" data-go="6:0.6">Ritual</button></div>
+        </article>
+        <article class="beat">
+          <p class="kicker"><b>04</b> The journal · <span class="jm">January</span></p>
+          <h2>A question to sit with.</h2>
+          <p>A “reflect” prompt, with lines to answer it in your own hand.</p>
+          <div class="tabs" role="group" aria-label="Look closer at"><button type="button" class="tab" data-go="4:0.6">Reflection</button><button type="button" class="tab is-on" data-go="5:0.6">Prompt</button><button type="button" class="tab" data-go="6:0.6">Ritual</button></div>
+        </article>
+        <article class="beat">
+          <p class="kicker"><b>04</b> The journal · <span class="jm">January</span></p>
+          <h2>A small ritual.</h2>
+          <p>One slow, simple thing to do this month. Beside it, a QR with more.</p>
+          <div class="tabs" role="group" aria-label="Look closer at"><button type="button" class="tab" data-go="4:0.6">Reflection</button><button type="button" class="tab" data-go="5:0.6">Prompt</button><button type="button" class="tab is-on" data-go="6:0.6">Ritual</button></div>
+        </article>
+
+        <article class="beat">
+          <p class="kicker"><b>05</b> The QR on the 1st</p>
+          <h2>At midnight, the month opens.</h2>
+          <p>Scan the “more for you” QR. On the 1st, it unlocks that month’s playlists, recipes, book lists and places.</p>
+        </article>
+        <article class="beat">
+          <p class="kicker"><b>05</b> For companies</p>
+          <h2>Or let it speak for you.</h2>
+          <p>Point the same QR to your own page each month: a note from the founders, team news, a thank-you. Your team runs it, or we do.</p>
+          <div class="seg" role="group" aria-label="What the QR opens">
+            <button type="button" class="seg__b" id="qr-ours" aria-pressed="false">elmuse’s page</button>
+            <button type="button" class="seg__b" id="qr-yours" aria-pressed="true">Your page</button>
+          </div>
+        </article>
+
+        <article class="beat">
+          <p class="kicker"><b>06</b> Twelve themes · <span id="theme-count">01 / 12</span></p>
+          <h2 class="theme"><span id="theme-month">January</span><em id="theme-title">Open Skies</em></h2>
+          <p class="phrase" id="theme-phrase">“your sign to look up”</p>
+          <p class="small">Each month has its own theme. The artwork, the journal and the QR all follow it.</p>
+          <div class="scrub">
+            <button type="button" class="round" id="month-prev" aria-label="Previous month">‹</button>
+            <input type="range" id="month-range" min="0" max="11" step="1" value="0" aria-label="Month">
+            <button type="button" class="round" id="month-next" aria-label="Next month">›</button>
+          </div>
+        </article>
+
+        <article class="beat">
+          <p class="kicker"><b>07</b> The postcard</p>
+          <h2>The picture tears off.</h2>
+          <p>The artwork strip is perforated. Drag it up to tear it off, or keep scrolling.</p>
+          <button type="button" class="btn" data-go="10:0.75">Tear it off</button>
+        </article>
+        <article class="beat">
+          <p class="kicker"><b>07</b> The postcard</p>
+          <h2>Turn it over: a real postcard.</h2>
+          <p>Room on the back for a note, an address and a stamp.</p>
+          <button type="button" class="btn" id="card-flip">Turn it over</button>
+        </article>
+        <article class="beat">
+          <p class="kicker"><b>07</b> The postcard</p>
+          <h2>Send it, or keep it.</h2>
+          <p>Post it to someone who needs it this month, or keep it for yourself.</p>
+          <div class="row">
+            <button type="button" class="btn btn--solid" id="send-btn">Send it</button>
+            <button type="button" class="btn" id="keep-btn">Keep it</button>
+          </div>
+          <p class="small" id="fate" aria-live="polite"></p>
+        </article>
+        <article class="beat">
+          <p class="kicker"><b>07</b> By December</p>
+          <h2>Twelve kept cards, one wall of art.</h2>
+          <p>The postcards gather over the year into a small gallery of 2027.</p>
+        </article>
+
+        <article class="beat">
+          <p class="kicker"><b>08</b> The year closes</p>
+          <h2>Twelve frames, and a letter to the year.</h2>
+          <p>The last sheet keeps “moments that felt like a sanctuary” in twelve photo frames. On its back, a letter to 2027.</p>
+        </article>
+
+        <article class="beat beat--teams">
+          <p class="kicker"><b>09</b> Made for your team</p>
+          <h2>Yours, from the wood to the QR.</h2>
+          <ul class="list">
+            <li><b>Your logo</b> engraved on every board.</li>
+            <li><b>Your artwork and themes</b>, or ours made for you. Supplying your own costs less.</li>
+            <li><b>Your monthly QR</b>, run by your team or by us, for the year or month by month.</li>
+            <li><b>Two editions</b>: one for clients, one for your team.</li>
+          </ul>
+        </article>
+
+        <article class="beat">
+          <p class="kicker"><b>10</b> Let’s talk</p>
+          <h2>Give your people a calmer 2027.</h2>
+          <p>Tell us how many and what you’d like to make your own. We reply with options and prices.</p>
+          <div class="row">
+            <a class="btn btn--lime" href="index.html#enquire">Enquire about an order</a>
+            <span class="wa" id="wa-wrap"><button type="button" class="btn btn--ghost" id="wa">WhatsApp</button></span>
+          </div>
+          <p class="small" id="wa-note"></p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>elmuse · a creative sanctuary</p>
+  <p><a href="index.html">All three 2027 calendars</a> · <a href="index.html#enquire">Enquire</a> · Prices on enquiry</p>
+</footer>
+
+<script src="sanctuary-story.js"></script>
+</body>
+</html>

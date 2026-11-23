@@ -1,0 +1,8 @@
+/* Style guide page only: labels between the examples. */
+.sg-label { display: block; padding-top: 32px; font: 400 var(--fs-ui)/var(--lh-ui) var(--font-ui); color: var(--ink-70); }
+.sg-rows { display: grid; gap: 24px; }
+.sg-row { display: grid; gap: 8px; border-top: 1px solid var(--ink-10); }
+.sg-row > .sg-label { padding-top: 8px; }
+.sg-flush { padding: 0; text-align: left; }
+.sg-stack { display: grid; gap: 16px; align-content: start; justify-items: start; }
+.sg-stack > .btn--block, .sg-stack > .stepper, .sg-stack > .field, .sg-stack > .notice, .sg-stack > .option { justify-self: stretch; }
