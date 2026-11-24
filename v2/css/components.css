@@ -387,6 +387,18 @@ ul.bullets { list-style: disc; padding: 0; margin: 0; font: 400 var(--fs-ui)/var
 .buybox__add { margin-bottom: 48px; }
 .buybox .bullets { margin-bottom: 32px; }
 @media (max-width: 900px) { .buybox { width: 100%; padding-top: 0; } .buybox__meta { margin-bottom: 32px; } }
+/* One fold on desktop: after the jump to #buy-now the whole stage, the thumbnail strip and the buy box fit under the header and sub-bar.
+   Stage height = viewport - header - sub-bar - the 48px scroll offset - thumbnail strip - 24px; width follows at 4:5. */
+@media (min-width: 901px) {
+  .buy { --subbar-h: 49px; --stage-h: max(280px, calc(100svh - var(--header-h) - var(--subbar-h) - 48px - 136px - 24px)); align-items: center; }
+  .gallery { width: min(100%, calc(var(--stage-h) * .8)); margin: 0 auto; }
+  .gallery__thumbs { width: 100%; }
+  .buybox { padding-top: 0; }
+  .buybox__meta { margin-bottom: 24px; }
+  .buybox__options { margin-bottom: 24px; }
+  .buybox__add { margin-bottom: 32px; }
+  .buybox .bullets { margin-bottom: 0; }
+}
 
 /* Intro copy + image (Sigma .product-top-specs) */
 .split { display: grid; grid-template-columns: 1fr 2fr; align-items: start; padding-block: var(--section-pad); }
