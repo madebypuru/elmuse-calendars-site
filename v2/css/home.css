@@ -1,1 +1,52 @@
-/* elmuse 2027 calendars, v2 home. Every part is shared (components.css); nothing page-specific yet. */
+/* elmuse 2027 calendars, v2 home: calendar tiles with a lifestyle swap, the moodboard, The 1st. */
+
+/* The 2027 calendars. Each cut-out is sized by width (--w) so the three objects cover about the same area of the 4:5 frame. */
+.cal-tile__img { display: grid; place-items: center; overflow: hidden; background: var(--white); }
+.product-tile__img .cal-tile__cut { position: static; inset: auto; width: var(--w); height: auto; object-fit: initial; }
+.product-tile__img .cal-tile__life { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--focal, 50% 50%); opacity: 0; transition: opacity .3s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .cal-tile:hover .cal-tile__life { opacity: 1; }
+}
+.cal-tile:focus-visible .cal-tile__life { opacity: 1; }
+
+/* In use: a white moodboard. Items are placed by home.js from its data; positions reset on reload. */
+.mood-hint { font: 400 var(--fs-ui)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-ui); text-transform: uppercase; color: var(--ink-70); text-align: center; margin: -16px 0 24px; }
+.mood { position: relative; background: var(--white); aspect-ratio: 100 / 62.5; }
+.mood__item { position: absolute; margin: 0; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; background: var(--thumb); }
+.mood__item img, .mood__item video { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
+.mood__item:hover { outline: 1px solid var(--ink-30); outline-offset: 4px; }
+.mood__item:focus-visible { outline: none; box-shadow: var(--focus); }
+.mood__item.is-dragging { cursor: grabbing; }
+.mood__play { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; display: grid; place-items: center; border: 0; padding: 0; background: var(--white); color: var(--ink); cursor: pointer; }
+.mood__play:focus-visible { box-shadow: var(--focus); }
+.mood__play svg { width: 16px; height: 16px; }
+.mood__item.is-playing .mood__play { opacity: 0; }
+.mood__item.is-playing:hover .mood__play, .mood__item.is-playing .mood__play:focus-visible { opacity: 1; }
+@media (max-width: 900px) {
+  .mood { aspect-ratio: 100 / 225; }
+}
+
+/* The 1st: the form on the left, the January issue laid out as an email on the right. */
+.the1st__label { font: 400 var(--fs-ui)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-ui); text-transform: uppercase; color: var(--ink-70); margin-bottom: 8px; }
+.the1st__title { font: var(--text-wght) var(--fs-text)/var(--lh-text) var(--font-text); letter-spacing: var(--ls-text); margin-bottom: 8px; }
+.letter__panel.the1st__panel { aspect-ratio: auto; padding: 48px 24px; }
+.issue { width: 480px; max-width: 100%; background: var(--white); border: 1px solid var(--ink-10); padding: 32px; }
+.issue__head { border-bottom: 1px solid var(--ink-10); padding-bottom: 16px; margin-bottom: 24px; }
+.issue__meta { display: flex; justify-content: space-between; gap: 16px; font: 400 var(--fs-ui)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-ui); text-transform: uppercase; }
+.issue__from { font: 400 var(--fs-ui)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-ui); color: var(--ink-70); margin-top: 4px; }
+.issue__kicker { font: 400 var(--fs-ui)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-ui); text-transform: uppercase; color: var(--ink-70); }
+.issue__theme { font: var(--text-wght) var(--fs-text)/var(--lh-text) var(--font-text); letter-spacing: var(--ls-text); margin: 4px 0 16px; }
+.issue__row { display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 12px 0; border-top: 1px solid var(--ink-10); }
+.issue__row dt { font: 400 var(--fs-ui)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-ui); text-transform: uppercase; color: var(--ink-70); }
+.issue__row dd { margin: 0; font: 400 var(--fs-ui)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-ui); }
+.issue__name { display: block; font: var(--text-wght) var(--fs-text)/var(--lh-text) var(--font-text); letter-spacing: var(--ls-text); }
+.issue__row--art img { display: block; width: 100%; height: auto; }
+@media (max-width: 900px) {
+  .letter__panel.the1st__panel { order: 0; padding: 24px 16px; }
+  .issue { padding: 24px 16px; }
+  .issue__row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-tile__img .cal-tile__life { transition: none; }
+}
